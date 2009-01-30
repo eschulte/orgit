@@ -1,0 +1,9 @@
+[submodule "vendor/plugins/acts_as_org"]
+	path = vendor/plugins/acts_as_org
+	url = git@github.com:eschulte/acts_as_org.git
+[submodule "vendor/plugins/active_file"]
+	path = vendor/plugins/active_file
+	url = git@github.com:eschulte/active_file.git
+[submodule "vendor/plugins/restful_authentication"]
+	path = vendor/plugins/restful_authentication
+	url = git://github.com/technoweenie/restful-authentication.git

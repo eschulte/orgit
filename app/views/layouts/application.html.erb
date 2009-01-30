@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>orGit</title>
+    <%= stylesheet_link_tag 'orGit' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+
+    <div id="wrapper">
+
+      <%= render :partial => 'layouts/header' %>
+
+      <div id="container">
+	<div id="content">
+	  <%= yield %>
+	</div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

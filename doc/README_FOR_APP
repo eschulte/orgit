@@ -1,0 +1,9 @@
+# -*- mode: org -*-
+#+TITLE: orGit wiki
+#+AUTHOR: Eric Schulte
+
+orGit-wiki --- a simple wiki powered by org-mode and git
+
+- *org-mode* provides a powerful formatting language with export to
+  HTML, LaTeX, and Sweave
+- *git* provides a version control and attribution

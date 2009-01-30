@@ -1,0 +1,26 @@
+<div id="header">
+  <div id="Logo">
+    <%= link_to("", root_path(), :title => "go back to the welcome page") %>
+  </div>
+
+  <div id="flash">
+    <% if flash[:error] -%>
+    <div id="flash_error"><%= flash[:error] %></div>
+    <script type="text/javascript">
+      setTimeout("new Effect.Fade('flash_error');", 5000);
+    </script>
+    <% elsif flash[:notice] -%>
+    <div id="flash_notice"><%= flash[:notice] %></div>
+    <script type="text/javascript">
+      setTimeout("new Effect.Fade('flash_notice');", 5000)
+    </script>
+    <% end -%>
+  </div>
+
+  <div id="user-bar">
+    <!-- number of running templs is tracked inside the user_bar -->
+    <%= render :partial => "users/user_bar" %>
+  </div>
+</div>
+<div style="clear:both;"></div>
+<hr>

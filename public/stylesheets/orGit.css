@@ -1,0 +1,46 @@
+/* header */
+#header {
+clear:both;
+}
+
+#logo{
+  float:left;
+  background:url(../images/orGit.png) no-repeat;
+  height: 75px;
+  width: 154px;
+}
+
+#logo:hover {
+  background:url(../images/orGit:hover.png) no-repeat;
+}
+
+#logo a {
+  display: block;
+  width: 154px;
+  height: 75px;
+}
+
+#user-bar {
+float: right;
+font-size: 9pt;
+}
+
+#flash_notice{
+  background: #cad4e0;
+  border: 0.25em solid #021d3d;
+  padding:0.25em;
+  margin:0.25em;
+  float: left;
+  height:3em;
+  width:20em;
+}
+
+#flash_error{
+  background:#fbe3e4;
+  border: .25em solid #fbc2c4;
+  padding:0.25em;
+  margin:0.25em;
+  float: left;
+  height:3em;
+  width:20em;
+}
