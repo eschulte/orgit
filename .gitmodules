@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/restful_authentication"]
 	path = vendor/plugins/restful_authentication
 	url = git://github.com/technoweenie/restful-authentication.git
+[submodule "vendor/plugins/acts_as_git"]
+	path = vendor/plugins/acts_as_git
+	url = git@github.com:eschulte/acts_as_git.git
