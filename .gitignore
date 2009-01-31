@@ -10,4 +10,4 @@ db/schema.rb
 db/*.sqlite3
 tmp/*
 doc/app/
-wikis/*
+repos/*
