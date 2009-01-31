@@ -2,3 +2,8 @@
 
 <p>a simple wiki powered by org-mode and git</p>
 
+<ul>
+  <% @repos.each do |repo| -%>
+  <li><%= link_to(repo.name, repo_path(repo), :title => "Enter #{repo.name}") %></li>
+  <% end -%>
+</ul>

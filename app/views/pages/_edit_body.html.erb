@@ -1,0 +1,15 @@
+<% form_tag(:action => :update_body, :id => @page) do || -%>
+<div id="page-edit-body">
+  <%= text_area_tag(:body, @page.body, :cols => 100, :rows => 36) %>
+</div>
+<div id="page-edit-actions">
+  <ul>
+    <li class="action">
+      <%= submit_tag("Save Changes") %>
+    </li>
+    <li class="action">
+      <%= link_to("Cancel", :back, :class => 'cancel', :title => "abandon this edit") %>
+    </li>
+  </ul>
+</div>
+<% end -%>

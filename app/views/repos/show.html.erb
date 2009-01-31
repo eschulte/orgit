@@ -1,0 +1,11 @@
+<h2><%= @repo.name %></h2>
+
+<!-- it would be good to show the README file if one exists -->
+
+<h3>Files</h3>
+
+<ul>
+  <% @repo.pages.each do |page| -%>
+  <li><%= link_to(page.name, page_path(page)) %></li>
+  <% end -%>
+</ul>

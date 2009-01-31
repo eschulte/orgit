@@ -1,0 +1,37 @@
+<div id="page-header">
+    <ul class="info">
+      <li class="action">
+      <label>Experiment:</label>
+      <%= link_to(@page.repo.name,
+                  repo_path(@page.repo),
+                  :title => "Back to the top of <em>#{@page.repo.name}</em>") %>
+      </li>
+      <li>
+      <label>Created:</label>
+      <%= time_ago_in_words(@page.ctime) %>
+      </li>
+    </ul>
+    <ul class="actions">
+      <li class="action">
+	<%= link_to("download",
+                    page_path(@page) + ".org",
+                    :class => 'download',
+                    :title => 'download this page as an Emacs org-mode formatted file') %>
+      </li>
+      <li class="action">
+	<%= link_to_remote("edit",
+                           :url => {:action => :edit_body, :id => @page},
+                           :html => {:class => 'edit', :title => 'edit the content of this page'}) %>
+      </li>
+      <li class="action">
+	<%= link_to("delete",
+                    page_path(@page),
+                    :method => :delete,
+                    :class => 'delete',
+                    :confirm => 'Are you sure you want to irrevocably delete this page?',
+                    :title => 'delete this page') %>
+      </li>
+    </ul>
+</div>
+<div style="clear:both;"></div>
+<div id="page-show-body"><%= @page.to_html %></div>

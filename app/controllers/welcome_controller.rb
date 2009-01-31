@@ -1,3 +1,7 @@
 class WelcomeController < ApplicationController
-  def index() end
+  
+  def index()
+    @repos = Repo.all
+  end
+  
 end

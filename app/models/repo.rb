@@ -4,5 +4,6 @@ class Repo < ActiveFile::Base
   has_many :pages, :from => :name, :to => :repo_name
   
   acts_as_git
+  self.git_ignore = [ActiveFile::Acts::Org::EXP_PREFIX]
   
 end
