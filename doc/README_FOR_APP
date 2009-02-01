@@ -1,5 +1,6 @@
 # -*- mode: org -*-
 #+TITLE: orGit
+#+SEQ_TODO:  TODO | DONE MAYBE
 #+AUTHOR: Eric Schulte
 
 orGit --- a simple wiki powered by org-mode and git
@@ -7,3 +8,34 @@ orGit --- a simple wiki powered by org-mode and git
 - *org-mode* provides powerful formatting with export to HTML, LaTeX,
   and Sweave
 - *git* provides version control, history and attribution
+
+* COMMENT tasks [1/4]
+Things to do
+
+** TODO implement the backend for history view/diff/revert [0/3]
+*** TODO view
+*** TODO diff
+*** TODO revert
+
+** TODO configuration [0/2]
+Setup a configuration page where it is possible to customize the wiki
+for a particular repo.
+
+*** TODO style and view options
+*** TODO access for the repo
+- who can view
+- who can edit
+
+** TODO Emacs interaction
+Maybe should use Emacs-client rather than starting up a new emacs, or
+could also use something more complicated but possibly preferable like
+having a hanging dialog waiting to accept commands.
+
+preference for the former
+
+** MAYBE other formats aside from org [0/3]
+maybe do some other backends like
+*** TODO markdown
+*** TODO textile
+*** TODO source-code
+
