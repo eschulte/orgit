@@ -4,20 +4,20 @@ clear:both;
 }
 
 #logo{
-  float:left;
-  background:url(../images/orGit.png) no-repeat;
-  height: 75px;
-  width: 154px;
+float:left;
+background:url(../images/orGit.png) no-repeat;
+height: 49px;
+width: 131px;
 }
 
 #logo:hover {
-  background:url(../images/orGit:hover.png) no-repeat;
+background:url(../images/orGit:hover.png) no-repeat;
 }
 
 #logo a {
-  display: block;
-  width: 154px;
-  height: 75px;
+display: block;
+width: 131px;
+height: 49px;
 }
 
 #user-bar {
@@ -26,23 +26,23 @@ font-size: 9pt;
 }
 
 #flash_notice{
-  background: #cad4e0;
-  border: 0.25em solid #021d3d;
-  padding:0.25em;
-  margin:0.25em;
-  float: left;
-  height:3em;
-  width:20em;
+background: #cad4e0;
+border: 2px solid #021d3d;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+padding:0.25em;
+margin-left:0.5em;
+float: left;
+height:36px;
 }
 
 #flash_error{
-  background:#fbe3e4;
-  border: .25em solid #fbc2c4;
-  padding:0.25em;
-  margin:0.25em;
-  float: left;
-  height:3em;
-  width:20em;
+background:#fbe3e4;
+border: 2px solid #fbc2c4;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+padding:0.25em;
+margin-left:0.5em;
+float: left;
+height:36px;
 }
 
 /**********************************************************************************/
@@ -51,7 +51,7 @@ font-size: 9pt;
 display: inline;
 }
 
-.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
+.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
 .download {background-image:url(../icons/disk.png)}
 .save {background-image:url(../icons/tick_circle.png)}
 .edit {background-image:url(../icons/pencil.png)}
@@ -61,6 +61,8 @@ display: inline;
 .inspect {background-image:url(../icons/magnifier_left.png)}
 .diff {background-image:url(../icons/push_sides.png)}
 .revert {background-image:url(../icons/arrow_undo.png)}
+#user-bar-in {background-image:url(../icons/lock.png)}
+#user-bar-out {background-image:url(../icons/lock_unlock.png)}
 
 #page-edit-actions ul, #page-header ul {
 list-style: none;
