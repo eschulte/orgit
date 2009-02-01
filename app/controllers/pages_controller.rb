@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :login_required, :except => :index
+  before_filter :login_required, :except => [:index, :show, :history]
   
   def index
     @page = Page.find(params[:id])
@@ -50,5 +50,11 @@ class PagesController < ApplicationController
       render(:action => :show)
     end
   end
+  
+  def history
+    @page = Page.get(params[:id])
+    @history = @page.history
+  end
+  
   
 end

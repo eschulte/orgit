@@ -1,0 +1,40 @@
+<h3>Commit history for <%= link_to(@page.name, page_path(@page)) %></h3>
+<ul id="history">
+  <% @history.each do |commit| -%>
+  <li>
+    <div class="actions">
+      <ul>
+	<% if logged_in? -%>
+	<li>
+	<%= link_to_remote("revert",
+                           :url => {},
+                           :html => {
+                             :class => "revert",
+                             :title => "revert to the version of #{@page.name} present at this commit"}) %>
+	</li>
+	<% end -%>
+	<li>
+	<%= link_to_remote("diff",
+                           :url => {},
+                           :html => {
+                             :class => "diff",
+                             :title => "view the changes introduced by this commit"}) %>
+	</li>
+	<li>
+	<%= link_to_remote("view",
+                           :url => {},
+                           :html => {
+                             :class => "inspect",
+                             :title => "view this version of #{@page.name}"}) %>
+	</li>
+      </ul>
+    </div>
+    <div class="info">
+      <label>Author:</label> <%= git_author(commit.author) %>
+      <label>Date: </label> <%= commit.date %>
+      <br/>
+      <pre><%= commit.message %></pre>
+    </div>
+  </li>
+  <% end -%>
+</ul>
