@@ -167,8 +167,21 @@ display: none;
 padding: 0.5em;
 margin: 0.5em;
 border: 2px solid;
-border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;
+border-radius-topleft:10px;-moz-border-radius-topleft:10px;-webkit-border-radius-topleft:10px;
+border-radius-bottomleft:10px;-moz-border-radius-bottomleft:10px;-webkit-border-radius-botttom-left:10px;
+background-color: white;
+overflow: auto;
+height: 20em;
 }
+
 /* try to override some inherited properties */
-#page-show-body ul#history li div.body lu { padding: 0; margin: 0; list-style: disc;}
-#page-show-body ul#history li div.body lu li { padding: 0; margin: 0;}
+#page-show-body ul#history li div.body ul li {
+padding: 0;
+margin: 0;
+background-color: white;
+}
+#page-show-body ul#history li div.body ol li {
+padding: 0;
+margin: 0;
+background-color: white;
+}
