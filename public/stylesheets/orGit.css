@@ -161,3 +161,14 @@ background-color: #a0a0a0;
 #page-show-body ul#history li div.actions li:hover a {
 color: white;
 }
+
+#page-show-body ul#history li div.body {
+display: none;
+padding: 0.5em;
+margin: 0.5em;
+border: 2px solid;
+border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;
+}
+/* try to override some inherited properties */
+#page-show-body ul#history li div.body lu { padding: 0; margin: 0; list-style: disc;}
+#page-show-body ul#history li div.body lu li { padding: 0; margin: 0;}

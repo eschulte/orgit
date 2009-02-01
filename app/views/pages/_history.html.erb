@@ -22,7 +22,7 @@
 	</li>
 	<li>
 	<%= link_to_remote("view",
-                           :url => {},
+                           :url => {:action => :commit_view, :id => @page, :sha => commit.sha},
                            :html => {
                              :class => "inspect",
                              :title => "view this version of #{@page.name}"}) %>
@@ -31,10 +31,12 @@
     </div>
     <div class="info">
       <label>Author:</label> <%= git_author(commit.author) %>
-      <label>Date: </label> <%= commit.date %>
+      <label>Date:</label> <%= commit.date %>
+      <label>Sha:</label> <%= truncate(commit.sha, 10) %>
       <br/>
       <pre><%= commit.message %></pre>
     </div>
+    <div class="body" id="<%= commit.sha %>"></div>
   </li>
   <% end -%>
 </ul>

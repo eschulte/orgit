@@ -1,0 +1,9 @@
+page.replace_html(@sha,
+                  :partial => 'commit_view',
+                  :locals => {
+                    :sha => @sha,
+                    :page => @page,
+                    :body => @body,
+                    :html => @html
+                  })
+page[@sha].setStyle(:display => :block)

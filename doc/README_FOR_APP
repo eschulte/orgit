@@ -1,6 +1,6 @@
 # -*- mode: org -*-
 #+TITLE: orGit
-#+SEQ_TODO:  TODO | DONE MAYBE
+#+SEQ_TODO:  TODO | STARTED | DONE MAYBE
 #+AUTHOR: Eric Schulte
 
 orGit --- a simple wiki powered by org-mode and git
@@ -12,8 +12,13 @@ orGit --- a simple wiki powered by org-mode and git
 * COMMENT tasks [1/4]
 Things to do
 
-** TODO implement the backend for history view/diff/revert [0/3]
-*** TODO view
+** TODO implement the backend for history view/diff/revert [1/3]
+*** STARTED view
+now showing the older version.
+
+still need to add buttons when viewing the old revision to switch back
+and forth between the html view and the raw body view.
+
 *** TODO diff
 *** TODO revert
 
