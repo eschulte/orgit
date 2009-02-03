@@ -2,10 +2,23 @@ class PagesController < ApplicationController
   before_filter :login_required, :except => [:index, :show, :history, :commit_view, :commit_diff]
   
   def index
-    @page = Page.find(params[:id])
+    if params[:rest]
+      id = params[:rest].join("/")
+      puts "id=#{id}"
+      @page = Page.find(id) if id.match(Page.location_regexp)
+      unless @page
+        send_data(File.read(File.join(Page.base_directory, id)))
+      end
+    else
+      @page = Page.find(params[:id])
+    end
+    render(:action => :show) if @page
   end
   
   def show
+    if params[:rest]
+      send_data(File.read(File.join(Page.base_directory, params[:rest].join("/"))))
+    end
     @page = Page.find(params[:id])
   end
   
