@@ -185,3 +185,28 @@ padding: 0;
 margin: 0;
 background-color: white;
 }
+
+/* diffs */
+#page-show-body ul#history li div.body pre {
+background-color: #fbfbfb;
+}
+
+#page-show-body ul#history li div.body span.plain-line {
+color: #aaaaaa;
+}
+
+#page-show-body ul#history li div.body span.plus-line {
+background-color: #f2fff1;
+}
+
+#page-show-body ul#history li div.body span.minus-line {
+background-color: #fff4f6;
+}
+
+#page-show-body ul#history li div.body span.plus-file-line {
+background-color: #d4ffd1;
+}
+
+#page-show-body ul#history li div.body span.minus-file-line {
+background-color: #ffe7ec;
+}

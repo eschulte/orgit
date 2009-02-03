@@ -15,7 +15,7 @@
 	<% end -%>
 	<li>
 	<%= link_to_remote("diff",
-                           :url => {},
+                           :url => {:action => :commit_diff, :id => @page, :sha => commit.sha},
                            :html => {
                              :class => "diff",
                              :title => "view the changes introduced by this commit"}) %>

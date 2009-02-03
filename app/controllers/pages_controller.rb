@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :login_required, :except => [:index, :show, :history, :commit_view]
+  before_filter :login_required, :except => [:index, :show, :history, :commit_view, :commit_diff]
   
   def index
     @page = Page.find(params[:id])
@@ -59,10 +59,15 @@ class PagesController < ApplicationController
   def commit_view
     @page = Page.get(params[:id])
     @sha  = params[:sha]
-    puts :patton
-    puts @sha
     @body = @page.at_revision(@sha)
     @html = Page.string_to_html(@body)
+  end
+  
+  def commit_diff
+    puts :patton
+    @page = Page.get(params[:id])
+    @sha  = params[:sha]
+    @diff = @page.gcommit(@sha).diff_parent.html_patch
   end
   
 end

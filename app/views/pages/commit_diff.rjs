@@ -1,0 +1,8 @@
+page.replace_html(@sha,
+                  :partial => 'commit_diff',
+                  :locals => {
+                    :sha => @sha,
+                    :page => @page,
+                    :body => @diff
+                  })
+page[@sha].setStyle(:display => :block)
