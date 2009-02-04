@@ -3,17 +3,31 @@ class PagesController < ApplicationController
                 :except => [:index, :show, :history, :commit_view, :commit_diff, :commit_clear])
   
   def index
-    if params[:rest]
-      id = params[:rest].join("/")
-      puts "id=#{id}"
-      @page = Page.find(id)
-      unless @page
-        send_data(File.read(File.join(Page.base_directory, id)))
+    # if params[:rest]
+    #   id = params[:rest].join("/")
+    #   puts "id=#{id}"
+    #   @page = Page.find(id)
+    #   if @page
+    #     puts "sending #{@page}"
+    #     @page
+    #   else
+    #     path = File.join(Page.base_directory, id) + (params[:format] ? ".#{params[:format]}" : "")
+    #     puts "path=#{path}"
+    #     send_data(File.read(path))
+    #   end
+    # else
+    #   puts "finding by id #{params[:id]}"
+    #   @page = Page.find(params[:id])
+    # end
+    path = path_from_params(params)
+    respond_to do |format|
+      format.html do
+        @page = Page.find(path)
+        render(:action => :show)
       end
-    else
-      @page = Page.find(params[:id])
+      format.jpg { send_data(File.read("#{File.join(Page.base_directory, path)}.jpg")) }
+      format.png { send_data(File.read("#{File.join(Page.base_directory, path)}.png")) }
     end
-    render(:action => :show) if @page
   end
   
   def show

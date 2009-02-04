@@ -10,4 +10,12 @@ module ApplicationHelper
     "/#{af_record.class.name.tableize}/raw/#{af_record}"
   end
   
+  def path_from_params(params)
+    if params[:rest]
+      params[:rest].join("/")
+    else
+      params[:id]
+    end
+  end
+
 end
