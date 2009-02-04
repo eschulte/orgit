@@ -6,4 +6,8 @@ module ApplicationHelper
             :class => 'git_author', :title => "email #{author_obj.name}")
   end
   
+  def raw_path(af_record)
+    "/#{af_record.class.name.tableize}/raw/#{af_record}"
+  end
+  
 end

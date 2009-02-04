@@ -51,7 +51,7 @@ height:36px;
 display: inline;
 }
 
-.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
+.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .hide {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
 .download {background-image:url(../icons/disk.png)}
 .save {background-image:url(../icons/tick_circle.png)}
 .edit {background-image:url(../icons/pencil.png)}
@@ -63,6 +63,7 @@ display: inline;
 .revert {background-image:url(../icons/arrow_undo.png)}
 #user-bar-in {background-image:url(../icons/lock.png)}
 #user-bar-out {background-image:url(../icons/lock_unlock.png)}
+.hide {background-image:url(../icons/target.png)}
 
 #page-edit-actions ul, #page-header ul {
 list-style: none;

@@ -6,6 +6,8 @@
 
 <ul>
   <% @repo.pages.each do |page| -%>
-  <li><%= link_to(page.name, page_path(page)) %></li>
+  <li>
+    <%= link_to(page.name, raw_path(page)) %>
+  </li>
   <% end -%>
 </ul>

@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
-  before_filter :login_required, :except => [:index, :show, :history, :commit_view, :commit_diff]
+  before_filter(:login_required,
+                :except => [:index, :show, :history, :commit_view, :commit_diff, :commit_clear])
   
   def index
     if params[:rest]
       id = params[:rest].join("/")
       puts "id=#{id}"
-      @page = Page.find(id) if id.match(Page.location_regexp)
+      @page = Page.find(id)
       unless @page
         send_data(File.read(File.join(Page.base_directory, id)))
       end
@@ -47,12 +48,12 @@ class PagesController < ApplicationController
   
   # remotes
   def edit_body
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     @body = @page.body
   end
   
   def update_body
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     @page.body = params[:body]
     if @page.save
       @body = @page.to_html()
@@ -65,22 +66,25 @@ class PagesController < ApplicationController
   end
   
   def history
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     @history = @page.history
   end
 
   def commit_view
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     @sha  = params[:sha]
     @body = @page.at_revision(@sha)
     @html = Page.string_to_html(@body)
   end
   
   def commit_diff
-    puts :patton
-    @page = Page.get(params[:id])
+    @page = Page.find(params[:id])
     @sha  = params[:sha]
     @diff = @page.gcommit(@sha).diff_parent.html_patch
+  end
+  
+  def commit_clear
+    @sha = params[:sha]
   end
   
 end

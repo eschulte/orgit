@@ -36,6 +36,11 @@ this can be done using *rest in routes.rb
     end
 #+end_src
 
+**** TODO when multiple instances match a partial path
+
+>> Page.find("worg/org-tutorials/orgtutorial_dto").map(&:path)
+=> ["worg/org-tutorials/orgtutorial_dto.org", "worg/org-tutorials/orgtutorial_dto-fr.org"]
+
 ** TODO implement the backend for history view/diff/revert [1/3]
 *** PARTIAL view
 now showing the older version.

@@ -4,6 +4,11 @@
   <li>
     <div class="actions">
       <ul>
+	<li>
+	  <%= link_to_remote("hide",
+                             :url => {:action => :commit_clear, :id => @page, :sha => commit.sha},
+                             :html => { :class => "hide" }) %>
+	</li>
 	<% if logged_in? -%>
 	<li>
 	<%= link_to_remote("revert",

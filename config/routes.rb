@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # path globing for strange paths inside of pages
   map.resources :pages
-  map.connect 'pages/*rest', :controller => 'pages'
+  map.connect 'pages/raw/*rest', :controller => 'pages'
   
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
