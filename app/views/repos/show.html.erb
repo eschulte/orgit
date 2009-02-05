@@ -1,13 +1,27 @@
-<h2><%= @repo.name %></h2>
+<h1><%= @repo.name %></h1>
 
-<!-- it would be good to show the README file if one exists -->
+<!-- This will only be shown if there is no index, or if it is specifically requested -->
 
-<h3>Files</h3>
+<div id="repo-history">
+  <%= render :partial => 'repo_history.html.erb', :locals => { :repo => @repo, :commit => @commit } %>
+</div>
 
-<ul>
-  <% @repo.pages.each do |page| -%>
-  <li>
-    <%= link_to(page.name, raw_path(page)) %>
-  </li>
+<!-- This should be pulled out and placed in the header -->
+<div id="repo-search">
+  <h3>Grep</h3>
+  <% form_tag(:controller => :repos, :action => :grep, :id => @repo) do -%>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("search") %>
   <% end -%>
-</ul>
+</div>
+<div style="clear:both;"></div>
+<div id="repo-pages">
+  <h3>Pages</h3>
+  <ul>
+    <% @repo.pages.each do |page| -%>
+    <li>
+      <%= link_to(page.name, show_path(page), :title => page.rel_path) %>
+    </li>
+    <% end -%>
+  </ul>
+</div>

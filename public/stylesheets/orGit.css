@@ -51,7 +51,7 @@ height:36px;
 display: inline;
 }
 
-.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .hide {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
+.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .hide, .previous, .next {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
 .download {background-image:url(../icons/disk.png)}
 .save {background-image:url(../icons/tick_circle.png)}
 .edit {background-image:url(../icons/pencil.png)}
@@ -64,6 +64,8 @@ display: inline;
 #user-bar-in {background-image:url(../icons/lock.png)}
 #user-bar-out {background-image:url(../icons/lock_unlock.png)}
 .hide {background-image:url(../icons/target.png)}
+.previous {background-image:url(../icons/down.png)}
+.next {background-image:url(../icons/up.png)}
 
 #page-edit-actions ul, #page-header ul {
 list-style: none;
@@ -210,4 +212,53 @@ background-color: #d4ffd1;
 
 #page-show-body ul#history li div.body span.minus-file-line {
 background-color: #ffe7ec;
+}
+
+/* repo show */
+
+#repo-history {
+width: 50%;
+float:left;
+}
+
+#repo-history #commit {
+float:left;
+}
+
+#repo-history ul {
+list-style: none;
+float: left;
+font-size: 12;
+}
+
+#repo-history ul li.action {
+display: inline;
+padding: 0.5em;
+margin: 0.5em;
+background-color: #f1f1f3;
+border: 1px solid;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+}
+
+#repo-history li.action:hover {
+background-color: #a0a0a0;
+}
+
+#repo-history li.action:hover a{
+color: white;
+}
+
+#repo-pages ul {
+list-style: none;
+}
+
+#repo-pages ul li {
+display: inline;
+padding: 0.1em;
+margin: 0.1em;
+}
+
+#repo-grep {
+width: 50%;
+float: right;
 }

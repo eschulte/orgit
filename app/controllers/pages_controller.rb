@@ -3,30 +3,13 @@ class PagesController < ApplicationController
                 :except => [:index, :show, :history, :commit_view, :commit_diff, :commit_clear])
   
   def index
-    # if params[:rest]
-    #   id = params[:rest].join("/")
-    #   puts "id=#{id}"
-    #   @page = Page.find(id)
-    #   if @page
-    #     puts "sending #{@page}"
-    #     @page
-    #   else
-    #     path = File.join(Page.base_directory, id) + (params[:format] ? ".#{params[:format]}" : "")
-    #     puts "path=#{path}"
-    #     send_data(File.read(path))
-    #   end
-    # else
-    #   puts "finding by id #{params[:id]}"
-    #   @page = Page.find(params[:id])
-    # end
     path = path_from_params(params)
     respond_to do |format|
       format.html do
         @page = Page.find(path)
         render(:action => :show)
       end
-      format.jpg { send_data(File.read("#{File.join(Page.base_directory, path)}.jpg")) }
-      format.png { send_data(File.read("#{File.join(Page.base_directory, path)}.png")) }
+      format.any { send_data(File.read("#{File.join(Page.base_directory, path)}.#{params[:format]}")) }
     end
   end
   
@@ -71,11 +54,11 @@ class PagesController < ApplicationController
     @page.body = params[:body]
     if @page.save
       @body = @page.to_html()
-      render(:action => :show)
+      redirect_to(show_path(@page))
     else
       flash[:error] = @page.errors.full_messages.to_sentence
       @body = @page.to_html()
-      render(:action => :show)
+      redirect_to(show_path(@page))
     end
   end
   
@@ -93,8 +76,10 @@ class PagesController < ApplicationController
   
   def commit_diff
     @page = Page.find(params[:id])
+    puts :patton
+    puts @page.path
     @sha  = params[:sha]
-    @diff = @page.gcommit(@sha).diff_parent.html_patch
+    @diff = @page.gcommit(@sha).diff_parent.path(@page.rel_path).html_patch
   end
   
   def commit_clear

@@ -1,4 +1,4 @@
-<h3>Commit history for <%= link_to(@page.name, page_path(@page)) %></h3>
+<h3>Commit history for <%= link_to(@page.name, show_path(@page)) %></h3>
 <ul id="history">
   <% @history.each do |commit| -%>
   <li>
@@ -6,7 +6,7 @@
       <ul>
 	<li>
 	  <%= link_to_remote("hide",
-                             :url => {:action => :commit_clear, :id => @page, :sha => commit.sha},
+                             :url => {:action => :commit_clear, :id => raw_path(@page), :sha => commit.sha},
                              :html => { :class => "hide" }) %>
 	</li>
 	<% if logged_in? -%>
@@ -20,14 +20,14 @@
 	<% end -%>
 	<li>
 	<%= link_to_remote("diff",
-                           :url => {:action => :commit_diff, :id => @page, :sha => commit.sha},
+                           :url => {:action => :commit_diff, :id => raw_path(@page), :sha => commit.sha},
                            :html => {
                              :class => "diff",
                              :title => "view the changes introduced by this commit"}) %>
 	</li>
 	<li>
 	<%= link_to_remote("view",
-                           :url => {:action => :commit_view, :id => @page, :sha => commit.sha},
+                           :url => {:action => :commit_view, :id => raw_path(@page), :sha => commit.sha},
                            :html => {
                              :class => "inspect",
                              :title => "view this version of #{@page.name}"}) %>

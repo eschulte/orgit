@@ -7,6 +7,10 @@ module ApplicationHelper
   end
   
   def raw_path(af_record)
+    af_record.to_s
+  end
+  
+  def show_path(af_record)
     "/#{af_record.class.name.tableize}/raw/#{af_record}"
   end
   
