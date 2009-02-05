@@ -4,6 +4,12 @@
 
 <ul>
   <% @repos.each do |repo| -%>
-  <li><%= link_to(repo.name, repo_path(repo), :title => "Enter #{repo.name}") %></li>
+  <li>
+    <%= link_to(repo.name, af_path(:enter, repo),
+                :title => "Enter #{repo.name}") %>
+    |
+    <%= link_to(repo.name, af_path(:git, repo),
+                :title => "Git repository information for #{repo.name}") %>
+  </li>
   <% end -%>
 </ul>

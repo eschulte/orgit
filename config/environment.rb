@@ -67,5 +67,5 @@ Rails::Initializer.run do |config|
 end
 
 # Mime Types
-Mime::Type.register("image/jpg", :jpg)
-Mime::Type.register("image/png", :png)
+Mime::Type.register('text/plain', :org)
+Mime::Type.register('text/plain', :tex)

@@ -1,49 +1,25 @@
 class PagesController < ApplicationController
-  before_filter(:login_required,
-                :except => [:index, :show, :history, :commit_view, :commit_diff, :commit_clear])
+  before_filter(:login_required, :except => [:view, :history, :commit_view, :commit_diff, :commit_clear])
   
-  def index
-    path = path_from_params(params)
+  def view
+    @page = Page.find(af_id(params))
     respond_to do |format|
       format.html do
-        @page = Page.find(path)
-        render(:action => :show)
+        render(:action => :view)
       end
+      format.org { } # TODO: implement
+      format.tex { } #TODO: implement
       format.any { send_data(File.read("#{File.join(Page.base_directory, path)}.#{params[:format]}")) }
     end
   end
   
-  def show
-    if params[:rest]
-      send_data(File.read(File.join(Page.base_directory, params[:rest].join("/"))))
-    end
-    @page = Page.find(params[:id])
+  def history
+    @page = Page.find(af_id(params))
+    @history = @page.history
   end
   
-  def new
-    @page = Page.new(params[:path])
-  end
-  
-  def edit
-    @page = Page.find(params[:id])
-  end
-  
-  def create
-    @page = Page.create(params[:page])
-    if @page.save
-    else
-    end
-  end
-  
-  def update
-    @page = Page.find(params[:id])
-    @page.update_attributes(params[:page])
-    if @page.save
-    else
-    end
-  end
-  
-  # remotes
+  # change the following so that they work whether they are remote or
+  # regular calls
   def edit_body
     @page = Page.find(params[:id])
     @body = @page.body
@@ -60,11 +36,6 @@ class PagesController < ApplicationController
       @body = @page.to_html()
       redirect_to(show_path(@page))
     end
-  end
-  
-  def history
-    @page = Page.find(params[:id])
-    @history = @page.history
   end
 
   def commit_view

@@ -45,6 +45,10 @@ float: left;
 height:36px;
 }
 
+.clear {
+clear:both;
+}
+
 /**********************************************************************************/
 /*                                   Page Show                                    */
 #page_creation_form {

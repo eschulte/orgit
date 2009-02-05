@@ -1,19 +1,19 @@
 class ReposController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
-  
-  def show()
-    @repo = Repo.find(params[:id])
-    @index = @repo.entries.select{|e| e.match("^index")}.first
+
+  def git
+    @repo = Repo.find(af_id(params))
+  end
+
+  def enter
+    @repo = Repo.find(af_id(params))
+    @entries = @repo.entries
+    @index = @entries.select{|f| f.match("^index")}.first
+    @index = Page.find(File.join(@repo.path, @index))
     if @index
-      redirect_to(show_path(Page.find(File.join(@repo.name, @index))))
+      redirect_to(af_path(:view, @index))
     else
-      @commit = @repo.last_commit
+      render(:view => :enter)
     end
   end
-  
-  def previous_commit
-    @repo   = Repo.find(params[:id])
-    @commit = @repo.gcommit(params[:sha]).parent
-  end
-  
+
 end
