@@ -8,47 +8,24 @@ orGit --- a simple wiki powered by org-mode and git
   and Sweave
 - *git* provides version control, history and attribution
 
-* COMMENT tasks [1/5]
+* COMMENT tasks [3/6]
 Things to do
 
-** TODO ActiveFile [0/1]
+** DONE ActiveFile [1/1]
+The active file paths are now working, thanks to two helpers in
+ActiveFileHelpers
 
-*** TODO need to work out ids as paths
-Need to pass path id's which contain "/"s, these are needed for
-relative links between files in the git repo.  This includes ".."
-links.
+** TODO add repo git view
+this could be modeled after magit
 
-Two sides,
-**** get these paths to the browser w/o escaping the "/"s
-This is a shame because it means we may not be able to use all of the
-pre-built rails path methods.
-
-**** return these paths to the controller
-this can be done using *rest in routes.rb
-
-#+begin_src ruby routes.rb
-  map.connect 'pages/*rest', :controller => 'pages'
-#+end_src
-
-#+begin_src ruby controller
-    if @rest
-      send_data(File.read(File.join(Page.base_directory, params[:rest].join("/"))))
-    end
-#+end_src
-
-**** TODO when multiple instances match a partial path
-
->> Page.find("worg/org-tutorials/orgtutorial_dto").map(&:path)
-=> ["worg/org-tutorials/orgtutorial_dto.org", "worg/org-tutorials/orgtutorial_dto-fr.org"]
-
-** TODO implement the backend for history view/diff/revert [1/3]
-*** PARTIAL view
+** TODO implement the backend for history view/diff/revert [2/3]
+*** DONE view
 now showing the older version.
 
 still need to add buttons when viewing the old revision to switch back
 and forth between the html view and the raw body view.
 
-*** TODO diff
+*** DONE diff
 *** TODO revert
 
 ** TODO configuration [0/2]
@@ -60,7 +37,7 @@ for a particular repo.
 - who can view
 - who can edit
 
-** TODO Emacs interaction
+** MAYBE Emacs interaction
 Maybe should use Emacs-client rather than starting up a new emacs, or
 could also use something more complicated but possibly preferable like
 having a hanging dialog waiting to accept commands.

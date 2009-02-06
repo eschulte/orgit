@@ -7,7 +7,7 @@
   <ul>
     <% @repo.pages.each do |page| -%>
     <li>
-      <%= link_to(page.name, show_path(page), :title => page.rel_path) %>
+      <%= link_to(page.name, af_path(:view, page), :title => page.rel_path) %>
     </li>
     <% end -%>
   </ul>

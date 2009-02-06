@@ -4,7 +4,7 @@
       <label>Repo:</label>
       <%= link_to(page.repo.name,
                   af_path(:enter, page.repo),
-                  :title => "Back to the top of <em>#{@page.repo.name}</em>") %>
+                  :title => "Back to the top of #{@page.repo.name}") %>
       </li>
       <li>
         <% if page.last_commit -%>

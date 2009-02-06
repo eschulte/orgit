@@ -1,5 +1,5 @@
 <%= render :partial => 'header', :locals => { :page => @page } %>
 <div class="clear-both"></div>
 <div id="page-show-body">
-  <%= @page.to_html %>
+  <%= render(:partial => 'edit') %>
 </div>

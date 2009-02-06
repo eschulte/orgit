@@ -7,13 +7,18 @@ module ActiveFileHelper
 
   def af_path(action, af, options = {})
     path = ["", action.to_s, af.to_s].join("/")
-    if options.keys.include?(:format) or options.keys.include?('format')
-      path = $1 if path.match("^(.+)\\.(.+?)$")
-      if options[:format]
-        "#{path}.#{options[:format]}"
-      else
-        path
-      end
+    path = if options.keys.include?(:format)
+             path = $1 if path.match("^(.+)\\.(.+?)$")
+             if options[:format]
+               "#{path}.#{options.delete(:format)}"
+             else
+               path
+             end
+           else
+             path
+           end
+    if options.size > 0
+      path + "?" + options.map{ |key, value| "#{key}=#{value}" }.join("&")
     else
       path
     end
