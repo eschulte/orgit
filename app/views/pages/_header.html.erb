@@ -2,48 +2,48 @@
     <ul class="info">
       <li>
       <label>Repo:</label>
-      <%= link_to(@page.repo.name,
-                  repo_path(@page.repo),
-                  :title => "Back to the top of <em>#{@page.repo.name}</em>") %>
+      <%= link_to(page.repo.name,
+                  af_path(:enter, page.repo),
+                  :title => "Back to the top of #{@page.repo.name}") %>
       </li>
       <li>
-        <% if @page.last_commit -%>
+        <% if page.last_commit -%>
           <label>Last Commit:</label>
-          <%= time_ago_in_words(@page.last_commit_at) %> ago by
-	  <%= git_author(@page.last_commit_by) %>
+          <%= time_ago_in_words(page.last_commit_at) %> ago by
+	  <%= git_author(page.last_commit_by) %>
         <% else -%>
 	  <label>Untracked</label>
         <% end -%>
       </li>
     </ul>
     <ul class="actions">
+      <% if page.last_commit -%>
       <li class="action">
 	<%= link_to_remote("history",
-                           :url => {:action => :history, :id => @page},
+                           :url => af_path(:history, page),
                            :html => {:class => 'history', :title => 'view this pages commit history'}) %>
       </li>
-      <li class="action">
-	<%= link_to("download",
-                    page_path(@page) + ".org",
-                    :class => 'download',
-                    :title => 'download this page as an Emacs org-mode formatted file') %>
-      </li>
+      <% end -%>
       <% if logged_in? -%>
       <li class="action">
 	<%= link_to_remote("edit",
-                           :url => {:action => :edit_body, :id => @page},
+                           :url => af_path(:edit, page),
                            :html => {:class => 'edit', :title => 'edit the content of this page'}) %>
       </li>
       <li class="action">
 	<%= link_to("delete",
-                    page_path(@page),
+                    af_path(:delete, page),
                     :method => :delete,
                     :class => 'delete',
                     :confirm => 'Are you sure you want to irrevocably delete this page?',
                     :title => 'delete this page') %>
       </li>
       <% end -%>
+      <li class="action">
+	<%= link_to("download",
+                    af_path(:download, page, :format => :org),
+                    :class => 'download',
+                    :title => 'download this page as an Emacs org-mode formatted file') %>
+      </li>
     </ul>
 </div>
-<div style="clear:both;"></div>
-<div id="page-show-body"><%= @page.to_html %></div>

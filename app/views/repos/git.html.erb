@@ -1,0 +1,14 @@
+<h1><%= @repo.name %></h1>
+
+<p>Repo information for <%= @repo.name %>.  This will be modeled after the look of magit</p>
+
+<div id="repo-pages">
+  <h3>Pages</h3>
+  <ul>
+    <% @repo.pages.each do |page| -%>
+    <li>
+      <%= link_to(page.name, af_path(:view, page), :title => page.rel_path) %>
+    </li>
+    <% end -%>
+  </ul>
+</div>
