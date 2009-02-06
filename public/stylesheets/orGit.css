@@ -263,6 +263,20 @@ margin: 0.1em;
 }
 
 #repo-grep {
-width: 50%;
-float: right;
+margin: .5em;
+padding: .5em;
+float: left;
+}
+
+#repo-log-graph {
+margin: .5em;
+padding: .5em;
+width: 60%;
+float: left;
+}
+
+#repo-log-graph pre {
+background-color: #f1f1f3;
+overflow: auto;
+height: 30em;
 }

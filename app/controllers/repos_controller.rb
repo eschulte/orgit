@@ -18,5 +18,16 @@ class ReposController < ApplicationController
       redirect_to(af_path(:git, @repo))
     end
   end
-
+  
+  def grep
+    @repo = Repo.find(af_id(params))
+    @query = params[:query]
+    @results = # TODO
+    if request.xhr?
+      render(:action => 'grep.rjs')
+    else
+      # not sure how to render this when no asynchronous
+    end
+  end
+  
 end

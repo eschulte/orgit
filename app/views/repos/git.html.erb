@@ -2,6 +2,24 @@
 
 <p>Repo information for <%= @repo.name %>.  This will be modeled after the look of magit</p>
 
+<div id="repo-log-graph">
+  <h3>Log</h3>
+  <pre>
+    <%= @repo.git.lib.graph("HEAD~5") %>
+  </pre>
+</div>
+
+<div id="repo-grep">
+  <h3>Grep</h3>
+  <% form_remote_tag(:url => af_path(:grep, @repo)) do -%>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag('grep') %>
+  <% end -%>
+  <div id="repo-grep-results"></div>
+</div>
+
+<div class="clear-both"></div>
+
 <div id="repo-pages">
   <h3>Pages</h3>
   <ul>
