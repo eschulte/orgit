@@ -1,10 +1,11 @@
 <div id="page-header">
     <ul class="info">
       <li>
-      <label>Repo:</label>
-      <%= link_to(page.repo.name,
-                  af_path(:at, page.repo),
-                  :title => "Back to the top of #{@page.repo.name}") %>
+	<label>
+            <%= link_to(page.repo.name,
+                        af_path(:at, @repo),
+                        :title => "Back to the top of #{@repo.name}") %>
+	</label>
       </li>
       <li>
         <% if page.last_commit -%>
@@ -40,10 +41,17 @@
       </li>
       <% end -%>
       <li class="action">
-	<%= link_to("download",
-                    af_path(:download, page, :format => :org),
-                    :class => 'download',
-                    :title => 'download this page as an Emacs org-mode formatted file') %>
+	<%= link_to(".org",
+                    af_path(:view, page, :format => :org),
+                    :class => 'org',
+                    :title => 'download this page in org-mode') %>
+      </li>
+      <li class="action">
+	<%= link_to(".tex",
+                    af_path(:view, page, :format => :tex),
+                    :class => 'latex',
+                    :title => 'download this page LaTeX') %>
       </li>
     </ul>
+    <div class="clear-both"></div>
 </div>

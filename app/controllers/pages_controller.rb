@@ -4,12 +4,21 @@ class PagesController < ApplicationController
   def view
     path = af_id(params)
     @page = Page.find(path)
+    @repo = @page.repo if @page
     respond_to do |format|
       format.html do
         render(:action => :view)
       end
-      format.org { } # TODO: implement download of raw org file
-      format.tex { } # TODO: implement download of exported latex file
+      format.org do
+        send_data(File.read(File.join(Page.base_directory, @page.path)),
+                  :type => 'text/plain',
+                  :disposition => 'attachment')
+      end
+      format.tex do
+        send_data(@page.to_latex,
+                  :type => 'text/plain',
+                  :disposition => 'attachment')
+      end
       format.any { send_data(File.read("#{File.join(Page.base_directory, path)}.#{params[:format]}")) }
     end
   end

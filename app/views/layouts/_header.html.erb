@@ -17,15 +17,16 @@
     <% end -%>
   </div>
   
-  <div id="user-bar">
-    <!-- number of running templs is tracked inside the user_bar -->
-    <%= render :partial => "users/user_bar" %>
-  </div>
+  <div id="header-right">
+    <div id="user-bar">
+      <%= render :partial => "users/user_bar" %>
+    </div>
   
-  <div id="repo-header-grep">
-    <% if false -%>
-      <%= render(:partial => 'repos/grep_form') %>
-    <% end -%>
+    <div id="repo-header-grep">
+      <% if @repo -%>
+        <%= render(:partial => 'repos/grep_form', :locals => { :repo => @repo }) %>
+      <% end -%>
+    </div>
   </div>
 </div>
 <div style="clear:both;"></div>

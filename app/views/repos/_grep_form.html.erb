@@ -1,4 +1,4 @@
-<% form_remote_tag(:url => af_path(:grep, repo)) do -%>
-<%= text_field_tag(:query) %>
-<%= submit_tag('grep') %>
+<% form_tag(af_path(:grep, repo)) do -%>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag('grep') %>
 <% end -%>

@@ -1,10 +1,24 @@
 <ul>
-  <% pages_from_grep(repo, results).each do |page, matches| -%>
+  <% pages_from_grep(repo, results).each do |page, sha, matches| -%>
   <li>
-    <%= link_to(page.path, af_path(:view, page)) %>
+    <span class="grep-page-link">
+      <%= link_to(page.name,
+                  af_path(:view, page),
+                  :title => "jump to #{page.path}") %>
+      <span title="<%= matches.size %> hit<%= (matches.size > 1) ? "s" : "" %> in <%= page.name %>">
+        [<%= matches.size %>]
+      </span>
+      at <%= truncate(sha, 14) %>
+    </span>
+    <div class="clear-both"></div>
     <ul>
       <% matches.each do |match| -%>
-      <li><b><%= match[0] %></b> <pre><%= highlight(match[1], query) %></pre></li>
+      <li>
+	<span class="line-number">Line: <%= match[0] %></span>
+	<span class="line-body">
+	  <tt><%= highlight(h(truncate(match[1], 100)), query) %></tt>
+	</span>
+      </li>
       <% end -%>
     </ul>
   </li>
