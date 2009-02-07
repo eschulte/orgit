@@ -4,7 +4,9 @@ class ReposController < ApplicationController
     @repo = Repo.find(params[:id])
     if @repo
       @at = File.join(params[:rest])
-      if @entries = @repo.entries(@at)
+      if @page = Page.find(File.join(@repo.path, @at))
+        redirect_to(af_path(:view, @page))
+      elsif @entries = @repo.entries(@at)
         @entries = @entries.reject{|e| e.match("^\\.")}
         @index = @entries.select{|f| f.match("^index")}.first
         @index = Page.find(File.join(@repo.path, @at, @index)) if @index

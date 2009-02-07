@@ -5,7 +5,7 @@
       <b>orGit</b> is a wiki powered by
       <a href="http://orgmode.org" title="Org-Mode homepage">Org-Mode</a>
       and
-      <a href="http://git-scm.com/" title="Git homepage">git</a>.
+      <a href="http://git-scm.com/" title="Git homepage">Git</a>.
     </p>
   </div>
 
@@ -71,25 +71,49 @@
 <div class="welcome-block" id="welcome-thanks">
   <h2>Code and Design</h2>
   <div>
-    <p><b>orGit</b> uses the following technologies.</p>
     <p>
-      The latest code for <b>orGit</b> can be found at
-      <a href="http://github.com">eschulte/orGit</a>
-      on
-      <a href="http://github.com">github</a>.
+      <b>orGit</b> combines the plain text magic or <b>Org-Mode</b>
+      with the version control of <b>git</b> to produce a very
+      sophisticated wiki with as little new code as possible.
     </p>
     <p>
-      The goal of <b>orGit</b> is to serve as a thin wrapper around
-      git and org-mode.
+      <b>orGit</b> tries to maintain a <b>clean and hackable</b> code
+      base so that everything from the <b>control flow</b> to
+      the <b>css</b> can be easily tweaked and customized.
     </p>
-    <p>Goals</p>
+    <p>
+      <b>orGit</b> is built using the
+      <a href="http://rubyonrails.org/">Ruby on Rails</a>
+      web framework, with the addition of
+    </p>
     <ul>
-      <li>simple and hackable</li>
-      <li>extensible</li>
-      <li>active file</li>
-      <li>acts as git</li>
-      <li>acts_as_org</li>
-      <li>component based</li>
+      <li>
+	<a href="http://github.com/eschulte/active_file/tree/master">ActiveFile</a> which
+	allows RoR models to be saved in plain text files
+      </li>
+      <li>
+	<a href="http://github.com/eschulte/acts_as_org/tree/master">acts_as_org</a> which
+	allows ActiveFile models to express Org-Mode behaviors
+      </li>
+      <li>
+	<a href="http://github.com/eschulte/acts_as_git/tree/master">acts_as_git</a> which
+	allows ActiveFile models to express git behaviors through
+	<a href="http://jointheconversation.org/rubygit/">Ruby/Git</a>
+      </li>
+    </ul>
+    <p>
+      The latest code for <b>orGit</b> can be found
+      <a href="http://github.com/eschulte/orGit/tree/master">here</a>.
+    </p>
+    <p>This is still a work in progress and will hopefully soon include</p>
+    <ul>
+      <li>an administrative interface allowing the customization of repo views</li>
+      <li>
+	An <tt>acts_as_yaml</tt> addition to ActiveFile which will
+	allow the storage of arbitrary <tt>key => value</tt> pairs in
+	a text hash saved in the file body, and can be useful in for
+	saving orGit repo customizations.
+      </li>
     </ul>
   </div>
 
