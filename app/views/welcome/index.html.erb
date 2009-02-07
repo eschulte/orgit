@@ -1,61 +1,89 @@
-<div id="welcome-orgit">
+<div class="welcome-block" id="welcome-orgit">
   <h2>orGit is...</h2>
-  <p>
-    <b>orGit</b> is a wiki powered by
-    <a href="http://orgmode.org" title="Org-Mode homepage">Org-Mode</a>
-    and
-    <a href="http://git-scm.com/" title="Git homepage">git</a>.
-  </p>
-  
+  <div>
+    <p>
+      <b>orGit</b> is a wiki powered by
+      <a href="http://orgmode.org" title="Org-Mode homepage">Org-Mode</a>
+      and
+      <a href="http://git-scm.com/" title="Git homepage">git</a>.
+    </p>
+  </div>
+
   <h3>Org-Mode for markup</h3>
-  <p>
-    Org-Mode is a very powerful plain text markup language; a literate
-    programming language, a task/project management system, an html
-    and LaTeX authoring system, and a simple note taking tool.
+  <div>
+    <p>
+      Org-Mode is a very powerful plain text markup language; a
+      literate programming language, a task/project management system,
+      an html and LaTeX authoring system, and a simple note taking
+      tool.
+    </p>
+    <p>
+      Org-Mode provides export to html, latex, and ASCII.  It supports
+      tables and spreadsheets, data visualization and processing,
+      embedded source-code, LaTeX equations, and much much more...
+    </p>
+    <p>For more information on Org-Mode see:</p>
+  </div>
 
-    <br/><br/>
-
-    Org-Mode provides export to html, latex, and ASCII, tables and
-    spreadsheets, data visualization and processing, embedded
-    source-code, and LaTeX equation support.
-  </p>
-  
   <h3>Git for version control</h3>
-  <p>
-    Git is an open source, distributed version control system designed
-    to handle everything from small to very large projects with speed
-    and efficiency.
-
-    <br/><br/>
-    
-    Git provides sophisticated tracking of page versions, diffs, and
-    edit history.  In addition git allows users to edit offline and
-    selectively push their commits to orGit.
-  </p>
+  <div>
+    <p>
+      Git is an open source, distributed version control system
+      designed to handle everything from small to very large projects
+      with speed and efficiency.
+    </p>
+    <p>
+      Git provides sophisticated tracking of page versions, diffs, and
+      edit history.  In addition git allows users to edit offline and
+      selectively push their commits to orGit.
+    </p>
+  </div>
 </div>
 
-<div id="welcome-repos">
+<div class="welcome-block" id="welcome-repos">
   <h2>Projects hosted here...</h2>
-  <ul>
-  <% @repos.each do |repo| -%>
-  <li>
-    <span class="welcome-repo-name">
-      <center>
-	<%= link_to(truncate(repo.name, 12), af_path(:at, repo),
-                    :title => "Enter the top level of #{repo.name}") %>
-      </center>
-    </span>
-    <span class="welcome-repo-info">
-      <%= link_to('Enter', af_path(:at, repo),
-                  :title => "Enter the top level of #{repo.name}") %>,
-      view git
-      <%= link_to('info', af_path(:git, repo),
-                  :title => "View git repository information for #{repo.name}") %>,
-      or 
-      <%= link_to('customize', af_path(:custom, repo),
-                  :title => "Customize the behavior and appearance of #{repo.name} in orGit") %>
-    </span>
-  </li>
-  <% end -%>
-  </ul>
+  <div>
+    <ul>
+      <% @repos.each do |repo| -%>
+      <li>
+	<span class="welcome-repo-name">
+	  <center>
+	    <%= link_to(truncate(repo.name, 12), af_path(:at, repo),
+                        :title => "Enter the top level of #{repo.name}") %>
+	  </center>
+	</span>
+	<span class="welcome-repo-info">
+	  <%= link_to('Enter', af_path(:at, repo),
+                      :title => "Enter the top level of #{repo.name}") %>,
+          view git
+          <%= link_to('info', af_path(:git, repo),
+                      :title => "View git repository information for #{repo.name}") %>,
+          or
+	  <%= link_to('customize', af_path(:custom, repo),
+                      :title => "Customize the behavior and appearance of #{repo.name} in orGit") %>
+        </span>
+      </li>
+      <% end -%>
+    </ul>
+  </div>
+</div>
+
+<div class="welcome-block" id="welcome-thanks">
+  <h2>Supporting Tools</h2>
+  <div>
+    <p>
+      <b>orGit</b> is built upon the following tools and technologies.
+    </p>
+    <ul>
+      <li>git</li>
+      <li>Emacs</li>
+      <li>Org-Mode</li>
+      <li>Ruby</li>
+      <li>Ruby on Rails</li>
+      <li>LaTeX</li>
+      <li>R</li>
+      <li>Sweave</li>
+    </ul>
+  </div>
+
 </div>
