@@ -54,12 +54,30 @@ background-color: #feff86;
 }
 
 /**********************************************************************************/
+/*                                  welcome page                                  */
+#welcome-repos {
+width: 50%;
+padding: .5em;
+margin: .5em;
+background-color: #f1f1f3;
+}
+
+#welcome-repos ul {
+list-style: none;
+}
+
+#welcome-repos ul li {
+padding: .1em;
+margin: .1em;
+}
+
+/**********************************************************************************/
 /*                                   Page Show                                    */
 #page_creation_form {
 display: inline;
 }
 
-.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .clear, .previous, .next {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
+.download, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .clear, .previous, .next, .up {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
 .download {background-image:url(../icons/disk.png)}
 .save {background-image:url(../icons/tick_circle.png)}
 .edit {background-image:url(../icons/pencil.png)}
@@ -74,6 +92,7 @@ display: inline;
 .clear {background-image:url(../icons/target.png)}
 .previous {background-image:url(../icons/down.png)}
 .next {background-image:url(../icons/up.png)}
+.up {background-image:url(../icons/up.png)}
 
 #page-edit-actions ul, #page-header ul {
 list-style: none;
@@ -299,3 +318,49 @@ list-style: none;
 padding: .5em;
 margin: .5em;
 }
+
+/**********************************************************************************/
+/*                                    repo at                                     */
+
+#repo-at ul.action{
+list-style: none;
+font-size: 12;
+}
+
+#repo-at ul.action li {
+float: left;
+padding: 0.5em;
+margin: 0.5em;
+background-color: #f1f1f3;
+border: 1px solid;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+}
+
+#repo-at ul.action li:hover {
+background-color: #a0a0a0;
+}
+
+#repo-at ul.action li:hover a {
+color: white;
+}
+
+#repo-at ul {
+list-style: none;
+float: left;
+}
+
+#repo-at ul li {
+padding: .25em;
+margin: .1em;
+text-decoration: none;
+}
+
+#repo-at ul li a:visited {
+color: blue;
+}
+
+#repo-at ul li:hover {
+background-color: #e3e3e3;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+}
+

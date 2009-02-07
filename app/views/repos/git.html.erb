@@ -4,7 +4,7 @@
   Repo information for <%= @repo.name %>.  This page displays information on the
   <%= @repo.name %> git repository, I you'd rather you can also:
   <ul>
-    <li><%= link_to("Enter", af_path(:enter, @repo)) %> <%= @repo.name %> if it has an index page</li>
+    <li><%= link_to("Enter", af_path(:at, @repo)) %> <%= @repo.name %> if it has an index page</li>
     <li><%= link_to("Grep",  af_path(:grep,  @repo)) %> through <%= @repo.name %></li>
   </ul>
   

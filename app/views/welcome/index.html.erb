@@ -1,15 +1,20 @@
-<h2>orGit-wiki</h2>
+<h2>orGit</h2>
 
-<p>a simple wiki powered by org-mode and git</p>
+<p><b>orGit</b> is a simple wiki powered by org-mode and git.</p>
 
-<ul>
+
+<h4>Git Repositories</h4>
+
+<div id="welcome-repos">
+  <ul>
   <% @repos.each do |repo| -%>
   <li>
-    <%= link_to(repo.name, af_path(:enter, repo),
+    <%= link_to(repo.name, af_path(:at, repo),
                 :title => "Enter #{repo.name}") %>
     |
     <%= link_to(repo.name, af_path(:git, repo),
                 :title => "Git repository information for #{repo.name}") %>
   </li>
   <% end -%>
-</ul>
+  </ul>
+</div>

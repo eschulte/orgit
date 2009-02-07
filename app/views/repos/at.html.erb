@@ -1,0 +1,24 @@
+<h2><%= @repo.name %></h2>
+
+<div id="repo-at">
+  Files in <%= File.join(@repo.path, @at) %>
+  <hr>
+  <ul class="action">
+    <li>
+      <%= link_to("up one level",
+                  af_path(:at, File.join(@repo.path, @at, "..")),
+                  :class => 'up',
+                  :title => 'go up one directory level') %>
+    </li>
+  </ul>
+
+  <div class="clear-both"></div>
+
+  <ul>
+    <% @entries.map{|e| File.join(@repo.path, @at, e)}.each do |entry| -%>
+    <li>
+      <%= link_to(entry, af_path(:at, (Page.find(entry) or entry))) %>
+    </li>
+    <% end -%>
+  </ul>
+</div>

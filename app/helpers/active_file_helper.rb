@@ -7,18 +7,19 @@ module ActiveFileHelper
 
   def af_path(action, af, options = {})
     path = ["", action.to_s, af.to_s].join("/")
-    path = if options.keys.include?(:format)
-             path = $1 if path.match("^(.+)\\.(.+?)$")
-             if options[:format]
-               "#{path}.#{options.delete(:format)}"
-             else
-               path
-             end
-           else
-             path
-           end
+    path = force_extension(path, options.delete(:format)) if options.keys.include?(:format)
     if options.size > 0
       path + "?" + options.map{ |key, value| "#{key}=#{value}" }.join("&")
+    else
+      path
+    end
+  end
+  
+  # if new_extension is not true, then any existing extension will be stripped
+  def force_extension(path, new_extension = nil)
+    path = $1 if path.match("^(.+)\\.(.+?)$")
+    if new_extension
+      "#{path}.#{new_extension}"
     else
       path
     end
