@@ -1,0 +1,12 @@
+<ul>
+  <% pages_from_grep(repo, results).each do |page, matches| -%>
+  <li>
+    <%= link_to(page.path, af_path(:view, page)) %>
+    <ul>
+      <% matches.each do |match| -%>
+      <li><b><%= match[0] %></b> <pre><%= highlight(match[1], query) %></pre></li>
+      <% end -%>
+    </ul>
+  </li>
+  <% end -%>
+</ul>

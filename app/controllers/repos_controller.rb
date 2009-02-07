@@ -22,11 +22,13 @@ class ReposController < ApplicationController
   def grep
     @repo = Repo.find(af_id(params))
     @query = params[:query]
-    @results = # TODO
+    @results = @repo.grep(@query) if @query
     if request.xhr?
       render(:action => 'grep.rjs')
     else
-      # not sure how to render this when no asynchronous
+      respond_to do |format|
+        format.html{ render(:view => 'grep.html') }
+      end
     end
   end
   

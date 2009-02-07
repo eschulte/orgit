@@ -21,5 +21,10 @@ module ApplicationHelper
       params[:id]
     end
   end
-
+  
+  def pages_from_grep(repo, results)
+    results.map do|treeish, matches|
+      [(treeish.match("^(.+):(.+)$") ? page = Page.find(File.join(repo.path, $2)) : nil), matches]
+    end.select{|page, matches| page}.compact
+  end
 end

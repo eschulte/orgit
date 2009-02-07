@@ -1,0 +1,5 @@
+<h2>Grep</h2>
+
+<p>Grep through the <%= link_to(@repo.name, af_path(:git, @repo)) %> git repo.</p>
+<%= render :partial => 'grep_form', :locals => {:repo => @repo} %>
+<div id="repo-grep-results"></div>

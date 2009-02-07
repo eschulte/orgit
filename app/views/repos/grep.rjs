@@ -1,0 +1,2 @@
+page.replace_html('repo-grep-results',
+                  :partial => 'grep', :locals => {:repo => @repo, :query => @query, :results => @results})

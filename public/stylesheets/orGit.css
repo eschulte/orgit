@@ -49,6 +49,10 @@ height:36px;
 clear:both;
 }
 
+.highlight {
+background-color: #feff86;
+}
+
 /**********************************************************************************/
 /*                                   Page Show                                    */
 #page_creation_form {
@@ -218,7 +222,8 @@ background-color: #d4ffd1;
 background-color: #ffe7ec;
 }
 
-/* repo show */
+/**********************************************************************************/
+/*                                   repo show                                    */
 
 #repo-history {
 width: 50%;
@@ -252,6 +257,23 @@ background-color: #a0a0a0;
 color: white;
 }
 
+#repo-git-welcome {
+width: 60%;
+}
+
+#repo-log-graph pre {
+background-color: #f1f1f3;
+overflow: auto;
+height: 36em;
+}
+
+#repo-pages {
+margin: .5em;
+padding: .5em;
+width: 30%;
+float: left;
+}
+
 #repo-pages ul {
 list-style: none;
 }
@@ -262,12 +284,6 @@ padding: 0.1em;
 margin: 0.1em;
 }
 
-#repo-grep {
-margin: .5em;
-padding: .5em;
-float: left;
-}
-
 #repo-log-graph {
 margin: .5em;
 padding: .5em;
@@ -275,8 +291,11 @@ width: 60%;
 float: left;
 }
 
-#repo-log-graph pre {
-background-color: #f1f1f3;
-overflow: auto;
-height: 30em;
+#repo-grep-results ul {
+list-style: none;
+}
+
+#repo-grep-results ul li {
+padding: .5em;
+margin: .5em;
 }

@@ -16,10 +16,16 @@
     </script>
     <% end -%>
   </div>
-
+  
   <div id="user-bar">
     <!-- number of running templs is tracked inside the user_bar -->
     <%= render :partial => "users/user_bar" %>
+  </div>
+  
+  <div id="repo-header-grep">
+    <% if false -%>
+      <%= render(:partial => 'repos/grep_form') %>
+    <% end -%>
   </div>
 </div>
 <div style="clear:both;"></div>
