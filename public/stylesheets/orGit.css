@@ -458,12 +458,7 @@ text-decoration: none;
 color: white;
 }
 
-#repo-grep-results ul li span.grep-page-link:hover {
-color: black;
-background-color: #e3e3e3;
-}
-
-#repo-grep-results ul li span.grep-page-link:hover a {
+#repo-grep-results ul li span.grep-page-link a:hover {
 color: black;
 text-decoration: bold;
 }
