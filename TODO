@@ -8,7 +8,7 @@ orGit --- a wiki powered by org-mode and git
   and Sweave
 - *git* provides version control, history and attribution
 
-* COMMENT tasks [4/6]
+* COMMENT tasks [5/8]
 Things to do
 
 ** DONE ActiveFile [1/1]
@@ -17,6 +17,10 @@ ActiveFileHelpers
 
 ** DONE add repo git view
 this could be modeled after magit
+
+** TODO commit on edit
+** TODO style [/]
+*** the git info page
 
 ** TODO implement the backend for history view/diff/revert [2/3]
 *** DONE view
@@ -28,7 +32,7 @@ and forth between the html view and the raw body view.
 *** DONE diff
 *** TODO revert
 
-** TODO configuration [0/2]
+** MAYBE configuration [0/2]
 Setup a configuration page where it is possible to customize the wiki
 for a particular repo.
 
@@ -36,7 +40,6 @@ for a particular repo.
 *** TODO access for the repo
 - who can view
 - who can edit
-
 ** MAYBE Emacs interaction
 Maybe should use Emacs-client rather than starting up a new emacs, or
 could also use something more complicated but possibly preferable like

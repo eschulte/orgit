@@ -41,9 +41,10 @@
 </div>
 
 <div class="welcome-block" id="welcome-repos">
-  <h2>Projects hosted here...</h2>
+  <h2>orGit repositories...</h2>
   <div>
     <ul>
+      <% if @repos.size > 0 -%>
       <% @repos.each do |repo| -%>
       <li>
 	<span class="welcome-repo-name">
@@ -63,6 +64,14 @@
                       :title => "Customize the behavior and appearance of #{repo.name} in orGit") %>
         </span>
       </li>
+      <% end -%>
+      <% else -%>
+      <h4>No repositories</h4>
+      <p>
+	To add a git repository to orGit either <tt>clone</tt> an
+	existing or <tt>init</tt> a new git repository into
+	the <tt>repos</tt> directory in orGit, then refresh this page.
+      </p>
       <% end -%>
     </ul>
   </div>
