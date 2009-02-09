@@ -2,7 +2,7 @@
               repo.status.map{|p| Page.find(File.join(repo.path, p.path)) or p}
             else
               repo.status.send(type).map{ |f, p| Page.find(File.join(repo.path, f)) or p}
-            end.compact) -%>
+            end.reject{ |p| repo.ignored?(p.path) }.compact) -%>
 <% if pages.size >0 -%>
 <h3><%= type %></h3>
 <div>

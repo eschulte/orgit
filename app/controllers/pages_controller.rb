@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  include AuthenticatedSystem
   before_filter(:login_required, :except => [:view, :history, :commit_view, :commit_diff, :commit_clear])
 
   def view
@@ -7,7 +8,19 @@ class PagesController < ApplicationController
     @repo = @page.repo if @page
     respond_to do |format|
       format.html do
-        render(:action => :view)
+        if @page
+          render(:action => :view)
+        elsif logged_in? #current_user
+          begin
+            path = path + ".org"
+            @page = Page.create(path)
+            render(:action => 'confirm_create.rjs')
+          rescue
+            render(:file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return
+          end
+        else
+          render(:file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return
+        end
       end
       format.org do
         send_data(File.read(File.join(Page.base_directory, @page.path)),
