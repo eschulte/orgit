@@ -93,7 +93,7 @@ class PagesController < ApplicationController
     @page.body = params[:body]
     respond_to do |format|
       format.html do
-        if @page.save
+        if @page.save_and_commit(params[:commit])
           redirect_to(af_path(:view, @page))
         else
           flash[:error] = @page.errors.full_messages.to_sentence

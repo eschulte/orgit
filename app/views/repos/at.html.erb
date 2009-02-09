@@ -1,5 +1,6 @@
+<%= render(:partial => 'shared/header', :locals => { :repo => @repo }) %>
+
 <div id="repo-at">
-  <%= link_to(@repo.name, af_path(:at, @repo.path)) %>
   Files in <%= File.join(@repo.path, @at) %>
   <div class="clear-both"></div>
   <hr>

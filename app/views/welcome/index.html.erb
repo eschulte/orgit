@@ -56,12 +56,15 @@
 	<span class="welcome-repo-info">
 	  <%= link_to('Enter', af_path(:at, repo),
                       :title => "Enter the top level of #{repo.name}") %>,
-          view git
-          <%= link_to('info', af_path(:git, repo),
-                      :title => "View git repository information for #{repo.name}") %>,
+          view
+          <%= link_to('git', af_path(:git, repo),
+                      :title => "View git repository information for #{repo.name}")
+          %>
+	  info<% if logged_in? and current_user.admin -%>,
           or
 	  <%= link_to('customize', af_path(:custom, repo),
                       :title => "Customize the behavior and appearance of #{repo.name} in orGit") %>
+          <% end -%>
         </span>
       </li>
       <% end -%>

@@ -1,0 +1,21 @@
+<% pages = (if (type == :all)
+              repo.status.map{|p| Page.find(File.join(repo.path, p.path)) or p}
+            else
+              repo.status.send(type).map{ |f, p| Page.find(File.join(repo.path, f)) or p}
+            end.compact) -%>
+<% if pages.size >0 -%>
+<h3><%= type %></h3>
+<div>
+  <ul>
+    <% pages.each do |page| -%>
+      <li>
+	<% if page.class == Page -%>
+	  <%= link_to(page.name, af_path(:view, page), :title => page.rel_path) %>
+        <% elsif page.respond_to?(:path) -%>
+	  <%= link_to(page.path, af_path(:view, File.join(repo.path, page.path))) %>
+	<% end -%>
+      </li>
+    <% end -%>
+  </ul>
+</div>
+<% end -%>

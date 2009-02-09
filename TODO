@@ -8,7 +8,7 @@ orGit --- a wiki powered by org-mode and git
   and Sweave
 - *git* provides version control, history and attribution
 
-* COMMENT tasks [5/8]
+* COMMENT tasks [6/10]
 Things to do
 
 ** DONE ActiveFile [1/1]
@@ -17,10 +17,19 @@ ActiveFileHelpers
 
 ** DONE add repo git view
 this could be modeled after magit
+** DONE style [1/1]
+*** DONE the git info page
+
+** TODO add page action from at view
+add a new page to the repo, and begin editing it.
+
+maybe good if you go to a page that doesn't exist.
+
+** TODO use .gitignore to ignore certain files
+- like those matching *~
+maybe this shouldn't use .gitignore
 
 ** TODO commit on edit
-** TODO style [/]
-*** the git info page
 
 ** TODO implement the backend for history view/diff/revert [2/3]
 *** DONE view

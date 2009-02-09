@@ -1,4 +1,4 @@
-<%= render :partial => 'header', :locals => { :page => @page } %>
+<%= render :partial => 'shared/header', :locals => { :page => @page, :repo => @page.repo } %>
 <div class="clear-both"></div>
 <div id="page-show-body">
   <%= @page.to_html %>

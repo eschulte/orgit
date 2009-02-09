@@ -1,15 +1,11 @@
 <% form_tag(af_path(:update, @page)) do -%>
 <div id="page-edit-body">
-  <%= text_area_tag(:body, @page.body, :cols => 100, :rows => 36) %>
+  <%= text_area_tag(:body, @page.body, :cols => 100, :rows => 34) %>
 </div>
 <div id="page-edit-actions">
-  <ul>
-    <li class="action">
-      <%= submit_tag("Save Changes") %>
-    </li>
-    <li class="action">
+      <label>Commit Message</label><br/>
+      <%= text_area_tag(:commit, "", :cols => 70) %> <br/>
+      <%= submit_tag("Commit Changes") %>
       <%= link_to("Cancel", :back, :class => 'cancel', :title => "abandon this edit") %>
-    </li>
-  </ul>
 </div>
 <% end -%>

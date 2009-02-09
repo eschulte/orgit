@@ -1,22 +1,29 @@
+<% page ||= false -%>
+<% repo ||= false -%>
 <div id="page-header">
+  <% if repo -%>
     <ul class="info">
       <li>
 	<label>
-            <%= link_to(page.repo.name,
-                        af_path(:at, @repo),
-                        :title => "Back to the top of #{@repo.name}") %>
+	  <%= link_to(repo.name,
+                      af_path(:at, repo),
+                      :title => "Back to the top of #{@repo.name}") %>
 	</label>
+	<%= link_to('[git]', af_path(:git, repo),
+                    :title => "View git repository information for #{@repo.name}") %>
       </li>
       <li>
-        <% if page.last_commit -%>
+        <% if (page or repo).last_commit -%>
           <label>Last Commit:</label>
-          <%= time_ago_in_words(page.last_commit_at) %> ago by
-	  <%= git_author(page.last_commit_by) %>
+          <%= time_ago_in_words((page or repo).last_commit_at) %> ago by
+	  <%= git_author((page or repo).last_commit_by) %>
         <% else -%>
 	  <label>Untracked</label>
         <% end -%>
       </li>
     </ul>
+  <% end -%>
+  <% if page -%>
     <ul class="actions">
       <% if page.last_commit -%>
       <li class="action">
@@ -53,5 +60,6 @@
                     :title => 'download this page LaTeX') %>
       </li>
     </ul>
+  <% end -%>
     <div class="clear-both"></div>
 </div>

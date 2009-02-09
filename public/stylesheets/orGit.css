@@ -1,3 +1,8 @@
+/* content */
+#container {
+min-width: 50em;
+}
+
 /* header */
 #header {
 clear:both;
@@ -59,11 +64,9 @@ background-color: #feff86;
 /**********************************************************************************/
 /*                                  welcome page                                  */
 .welcome-block {
-width: 47%;
+width: 48%;
 padding: .25em;
 margin: .25em;
-margin-left: 1%;
-margin-right: 1%;
 background-color: #b1bfd0;
 border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;
 }
@@ -176,6 +179,10 @@ list-style: none;
 font-size: 12;
 }
 
+#page-edit-actions ul {
+float: left;
+}
+
 #page-header ul.info {
 float:left;
 padding: .5em;
@@ -226,7 +233,6 @@ font-size: 12;
 }
 
 #page-edit-body {
-float: left;
 }
 
 /**********************************************************************************/
@@ -357,40 +363,6 @@ background-color: #a0a0a0;
 color: white;
 }
 
-#repo-git-welcome {
-width: 60%;
-}
-
-#repo-log-graph pre {
-background-color: #f1f1f3;
-overflow: auto;
-height: 36em;
-}
-
-#repo-pages {
-margin: .5em;
-padding: .5em;
-width: 30%;
-float: left;
-}
-
-#repo-pages ul {
-list-style: none;
-}
-
-#repo-pages ul li {
-display: inline;
-padding: 0.1em;
-margin: 0.1em;
-}
-
-#repo-log-graph {
-margin: .5em;
-padding: .5em;
-width: 60%;
-float: left;
-}
-
 /**********************************************************************************/
 /*                                   repo grep                                    */
 
@@ -511,3 +483,39 @@ background-color: #e3e3e3;
 border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
 }
 
+/**********************************************************************************/
+/*                                   repo git                                     */
+
+h2#repo-link a {
+color: blue;
+text-decoration: none;
+}
+
+h2#repo-link a:hover {
+color: blue;
+text-decoration: underline;
+}
+
+#repo-log-graph {
+float:left;
+}
+
+#repo-log-graph pre {
+background-color: #f1f1f3;
+overflow: auto;
+height: 36em;
+border-radius-topleft:8px;-moz-border-radius-topleft:8px;-webkit-border-radius-topleft:8px;
+}
+
+#repo-pages {
+float: right;
+}
+
+#repo-pages ul {
+list-style: none;
+}
+
+#repo-pages ul li {
+padding: 0.1em;
+margin: 0.1em;
+}
