@@ -37,20 +37,26 @@ margin-bottom: -1.25em;
 
 #flash_notice{
 background: #cad4e0;
-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
-padding:0.25em;
+padding-top:.8em;
+padding-bottom:0em;
+padding-left:1em;
+padding-right:1em;
 margin-left:0.5em;
 float: left;
 height:36px;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
 }
 
 #flash_error{
 background:#fbe3e4;
-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
-padding:0.25em;
+padding-top:.8em;
+padding-bottom:0em;
+padding-left:1em;
+padding-right:1em;
 margin-left:0.5em;
 float: left;
 height:36px;
+border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
 }
 
 .clear-both {
