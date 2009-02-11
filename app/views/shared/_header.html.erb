@@ -21,6 +21,12 @@
 	  <label>Untracked</label>
         <% end -%>
       </li>
+      <% if logged_in? -%>
+      <li class="action">
+	<%= link_to("new", af_path(:new, page, :repo => @repo.path),
+                    :class => 'new', :title => 'create a new page') %>
+      </li>
+      <% end -%>
     </ul>
   <% end -%>
   <% if page -%>

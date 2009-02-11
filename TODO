@@ -1,15 +1,8 @@
 # -*- mode: org -*-
-#+TITLE: orGit
+#+TITLE: orGit -- tasks
 #+AUTHOR: Eric Schulte
 
-orGit --- a wiki powered by org-mode and git
-
-- *org-mode* provides powerful formatting with export to HTML, LaTeX,
-  and Sweave
-- *git* provides version control, history and attribution
-
-* COMMENT tasks [7/10]
-Things to do
+Things to do...
 
 ** DONE ActiveFile [1/1]
 The active file paths are now working, thanks to two helpers in
@@ -28,14 +21,13 @@ Added a git.ignore?(rel_path) command in [[file:vendor/plugins/acts_as_git/lib/g
 reads a repo's .gitignore file, and decides whether or not to ignore a
 file appropriately.
 
-** TODO add page action from at view
+** DONE commit on edit
+** DONE add page action from :at and :view actions
 add a new page to the repo, and begin editing it.
 
 maybe good if you go to a page that doesn't exist.
 
-** TODO commit on edit
-
-** TODO implement the backend for history view/diff/revert [2/3]
+** DONE implement the backend for history view/diff/revert [3/3]
 *** DONE view
 now showing the older version.
 
@@ -43,7 +35,7 @@ still need to add buttons when viewing the old revision to switch back
 and forth between the html view and the raw body view.
 
 *** DONE diff
-*** TODO revert
+*** DONE revert
 
 ** MAYBE configuration [0/2]
 Setup a configuration page where it is possible to customize the wiki

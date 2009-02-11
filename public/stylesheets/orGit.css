@@ -145,8 +145,9 @@ height: 100%;
 
 /**********************************************************************************/
 /*                                    Buttons                                     */
-.org, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .clear, .previous, .next, .up, .html, .latex {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
+.org, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .clear, .previous, .next, .up, .html, .latex, .new {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
 .save {background-image:url(../icons/tick_circle.png)}
+.new {background-image:url(../icons/plus_circle.png)}
 .edit {background-image:url(../icons/pencil.png)}
 .delete {background-image:url(../icons/trashcan.png)}
 .cancel {background-image:url(../icons/cross_circle.png)}
@@ -189,6 +190,14 @@ padding: .5em;
 margin: .5em;
 background-color: #f1f1f3;
 border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;
+}
+
+#page-header ul.info li.action:hover {
+background-color: #f1f1f3;
+}
+
+#page-header ul.info li.action:hover a {
+color: blue;
 }
 
 #page-header ul.actions {

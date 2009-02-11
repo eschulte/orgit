@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ActiveFileHelper
 
-  def af_id(params)
+  def af_id()
     params[:rest].join("/")
   end
 

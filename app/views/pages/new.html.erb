@@ -1,0 +1,17 @@
+<% if logged_in? -%>
+  <% if @path -%>
+    <p>
+    Are you sure you want to create a new page at <em><%= @path %></em>?
+    <%= link_to("create", af_path(:create, @path)) %>
+    <%= link_to("cancel", :back) %>
+    </p>
+  <% else -%>
+    <% form_tag(af_path(:create, '')) do -%>
+      <%= text_field_tag(:path, @repo ? @repo.path + "/" : "") %>
+      <%= submit_tag('create') %>
+    <% end -%>
+  <% end -%>
+<% else -%>
+  <p>You must be logged in to create new pages. <%= link_to('cancel', :back) %></p>
+<% end -%>
+  

@@ -29,4 +29,5 @@ module ApplicationHelper
        matches]
     end.select{|page, sha, matches| page}.compact
   end
+  
 end

@@ -24,14 +24,14 @@ class ReposController < ApplicationController
   end
 
   def git
-    @repo = Repo.find(af_id(params))
+    @repo = Repo.find(af_id)
     respond_to do |format|
       format.html{ render(:view => :git) }
     end
   end
 
   def grep
-    @repo = Repo.find(af_id(params))
+    @repo = Repo.find(af_id)
     @query = params[:query]
     @results = @repo.grep(@query) if @query
     if request.xhr?
