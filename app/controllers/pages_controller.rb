@@ -141,7 +141,14 @@ class PagesController < ApplicationController
   end
 
   def delete
-    # TODO: implement page deletion in controller
+    @page = Page.find(af_id)
+    @repo = @page.repo
+    if @page.destroy_and_commit("deleting #{@page.rel_path}")
+      redirect_to(af_path(:at, @repo))
+    else
+      flash[:error] = @page.errors.full_messages.to_sentence
+      redirect_to(af_path(:view, @page))
+    end
   end
 
 end
