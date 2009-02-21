@@ -37,6 +37,12 @@ and forth between the html view and the raw body view.
 *** DONE diff
 *** DONE revert
 
+** DONE update to new active_file version
+
+** TODO stop using private git urls for submodules
+
+** TODO replace view with show
+
 ** MAYBE configuration [0/2]
 Setup a configuration page where it is possible to customize the wiki
 for a particular repo.

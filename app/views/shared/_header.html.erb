@@ -7,10 +7,10 @@
 	<label>
 	  <%= link_to(repo.name,
                       af_path(:at, repo),
-                      :title => "Back to the top of #{@repo.name}") %>
+                      :title => "Back to the top of #{repo.name}") %>
 	</label>
 	<%= link_to('[git]', af_path(:git, repo),
-                    :title => "View git repository information for #{@repo.name}") %>
+                    :title => "View git repository information for #{repo.name}") %>
       </li>
       <li>
         <% if (page or repo).last_commit -%>
@@ -23,7 +23,7 @@
       </li>
       <% if logged_in? -%>
       <li class="action">
-	<%= link_to("new", af_path(:new, page, :repo => @repo.path),
+	<%= link_to("new", af_path(:new, page, :repo => repo.path),
                     :class => 'new', :title => 'create a new page') %>
       </li>
       <% end -%>

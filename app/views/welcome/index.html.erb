@@ -60,7 +60,7 @@
           <%= link_to('git', af_path(:git, repo),
                       :title => "View git repository information for #{repo.name}")
           %>
-	  info<% if logged_in? and current_user.admin -%>,
+	  info<% if false and (logged_in? and current_user.admin) -%>,
           or
 	  <%= link_to('customize', af_path(:custom, repo),
                       :title => "Customize the behavior and appearance of #{repo.name} in orGit") %>

@@ -18,7 +18,9 @@
   <ul>
     <% @entries.map{|e| File.join(@repo.path, @at, e)}.each do |entry| -%>
     <li>
-      <%= link_to(entry, af_path(:at, (Page.find(entry) or entry))) %>
+      <%= link_to(entry, af_path(:at,
+                                 (Page.find(entry) or entry),
+                                 :dir_p => File.directory?(File.join(Repo.base_directory, entry)))) %>
     </li>
     <% end -%>
   </ul>

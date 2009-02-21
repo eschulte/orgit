@@ -3,7 +3,6 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include ApplicationHelper
-  include ActiveFileHelper
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -16,4 +15,5 @@ class ApplicationController < ActionController::Base
   
   # For Restful authentication 
   include AuthenticatedSystem
+
 end

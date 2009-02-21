@@ -36,8 +36,6 @@ class PagesController < ApplicationController
   end
 
   def history
-    puts :patton
-    puts af_id
     @page = Page.find(af_id)
     @history = @page.history
     if request.xhr?
@@ -92,6 +90,7 @@ class PagesController < ApplicationController
     @page = Page.find(af_id)
     @sha  = params[:sha]
     @page.checkout_at(@sha)
+    @page.commit("reverted to #{@sha}", :author => user_to_git_author)
     redirect_to(af_path(:view, @page))
   end
   
@@ -101,13 +100,19 @@ class PagesController < ApplicationController
   end
   
   def create
-    begin
-      path = (af_id.size > 0) ? (af_id + ".org") : params[:path]
-      @page = Page.create(path)
+    path = (af_id.size > 0) ? (af_id + ".org") : params[:path]
+    @page = Page.new(:path => path)
+    if @page.save
+      @page.stage
+      @page.commit("#{@page.name} created", :author => user_to_git_author)
       redirect_to(af_path(:view, @page))
-    rescue
-      flash[:error] = "<em>#{path}</em> is an invalid path for a new page"
-      redirect_to(:controller => :welcome)
+    else
+      flash[:error] = @page.errors.full_messages.to_sentence
+      if @page.repo
+        redirect_to(af_path(:at, @page.repo))
+      else
+        redirect_to(:controller => :welcome)
+      end
     end
   end
 
@@ -130,7 +135,8 @@ class PagesController < ApplicationController
     @page.body = params[:body]
     respond_to do |format|
       format.html do
-        if @page.save_and_commit(params[:commit])
+        commit = (params[:commit].size > 0) ? params[:commit] : "no commit message"
+        if @page.save_and_commit(commit, :author => user_to_git_author)
           redirect_to(af_path(:view, @page))
         else
           flash[:error] = @page.errors.full_messages.to_sentence
@@ -143,7 +149,7 @@ class PagesController < ApplicationController
   def delete
     @page = Page.find(af_id)
     @repo = @page.repo
-    if @page.destroy_and_commit("deleting #{@page.rel_path}")
+    if @page.destroy_and_commit("deleting #{@page.rel_path}", :author => user_to_git_author)
       redirect_to(af_path(:at, @repo))
     else
       flash[:error] = @page.errors.full_messages.to_sentence
