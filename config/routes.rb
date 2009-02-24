@@ -17,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   # repos (viewing the meta information of a repo)
   map.connect 'at/:id/*rest', :controller => 'repos', :action => 'at'
   map.connect 'git/*rest', :controller => 'repos', :action => 'git'
+  map.connect 'commit/*rest', :controller => 'repos', :action => 'commit'
   map.connect 'grep/*rest', :controller => 'repos', :action => 'grep'
   
   # pages (viewing and editing pages)

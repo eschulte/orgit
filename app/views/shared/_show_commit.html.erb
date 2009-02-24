@@ -1,0 +1,5 @@
+<label>Author:</label> <%= git_author(commit.author) %>
+<label>Date:</label> <%= commit.date %>
+<label>Sha:</label> <%= truncate(commit.sha, 10) %>
+<br/>
+<pre><%= commit.message %></pre>

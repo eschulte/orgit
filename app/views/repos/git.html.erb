@@ -2,18 +2,24 @@
 
 <div id="repo-log-graph" class="welcome-block">
   <h2>Log</h2>
-  <pre>
-    <%= @repo.git.lib.graph("HEAD~5") %>
-  </pre>
+  <pre><br/><%= (@graph.map do |graph, sha, message|
+                   [
+                    graph,
+                    if (sha.size > 2)
+                      link_to_remote(truncate(sha, 10),
+                                     :url => af_path(:commit, @repo, :sha => sha),
+                                     :html => {:title => "view commit info"})
+                    else
+                      sha
+                    end,
+                    h(message)
+                   ].join("")
+                 end.join("<br/>")) %></pre>
 </div>
 
-<div id="repo-pages" class="welcome-block">
-  <h2>Pages</h2>
-  <%= render(:partial => 'git_page_list', :locals => { :type => :untracked, :repo => @repo }) %>
-  <%= render(:partial => 'git_page_list', :locals => { :type => :added, :repo => @repo }) %>
-  <%= render(:partial => 'git_page_list', :locals => { :type => :deleted, :repo => @repo }) %>
-  <%= render(:partial => 'git_page_list', :locals => { :type => :changed, :repo => @repo }) %>
-  <% # render(:partial => 'git_page_list', :locals => { :type => :all, :repo => @repo }) -%>
+<div id="repo-commit" class="welcome-block">
+  <h2>Commit</h2>
+  <div id="commit-info"></div>
 </div>
 
 <div class="clear-both"></div>

@@ -519,18 +519,17 @@ float:left;
 background-color: #f1f1f3;
 overflow: auto;
 height: 36em;
-border-radius-topleft:8px;-moz-border-radius-topleft:8px;-webkit-border-radius-topleft:8px;
 }
 
-#repo-pages {
+#repo-commit {
 float: right;
 }
 
-#repo-pages ul {
-list-style: none;
+#repo-commit label {
+font-weight: bold;
+display: block;
 }
 
-#repo-pages ul li {
-padding: 0.1em;
-margin: 0.1em;
+#repo-commit pre {
+overflow: auto;
 }

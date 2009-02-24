@@ -34,11 +34,7 @@
       </ul>
     </div>
     <div class="info">
-      <label>Author:</label> <%= git_author(commit.author) %>
-      <label>Date:</label> <%= commit.date %>
-      <label>Sha:</label> <%= truncate(commit.sha, 10) %>
-      <br/>
-      <pre><%= commit.message %></pre>
+      <%= render :partial => 'shared/show_commit', :locals => {:commit => commit} %>
     </div>
     <div class="body" id="<%= commit.sha %>"></div>
   </li>
