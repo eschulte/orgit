@@ -2,6 +2,7 @@
 
 <div id="repo-log-graph" class="welcome-block">
   <h2>Log</h2>
+  <div>
   <pre><br/><%= (@graph.map do |graph, sha, message|
                    [
                     graph,
@@ -15,6 +16,7 @@
                     h(message)
                    ].join("")
                  end.join("<br/>")) %></pre>
+  </div>
 </div>
 
 <div id="repo-commit" class="welcome-block">
