@@ -1,0 +1,23 @@
+<div class="welcome-block" id="repo-status">
+  <h2>Branches</h2>
+  <ul>
+    <li>
+      <label>Local</label>
+      <ul>
+        <% @repo.branches.local.each do |branch| -%>
+        <li><%= branch.name %></li>
+        <% end -%>
+      </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label>Remote</label>
+      <ul>
+        <% @repo.branches.remote.each do |branch| -%>
+        <li><%= branch.name %></li>
+        <% end -%>
+      </ul>
+    </li>
+  </ul>
+</div>

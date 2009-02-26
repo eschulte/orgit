@@ -1,9 +1,9 @@
 <div class="welcome-block" id="repo-status">
 <h2>Status</h2>
+<% pages = status.untracked -%>
+<% if pages.size > 0 -%>
 <ul>
   <li>
-    <% pages = status.untracked -%>
-    <% if pages.size > 0 -%>
     <label>Untracked files:</label> (<%= pages.size %>)
     <ul>
       <% pages.each do |page| -%>
@@ -16,15 +16,16 @@
       </li>
       <% end -%>
     </ul>
-    <% end -%>
   </li>
+</ul>
+<% end -%>
+<% pages = (status.added + status.changed + status.deleted) -%>
+<% if pages.size > 0 -%>
+<ul>
   <li>
-    <% pages = (status.added + status.changed + status.deleted) -%>
-    <% if pages.size > 0 -%>
     <label>Changes:</label> (<%= pages.size %>)
     <ul>
       <% pages.each do |page| -%>
-        <% unless untracked.include?(page) -%>
         <li>
   	<% if page.class == Page -%>
 	  <%= link_to(page.name, af_path(:view, page), :title => page.rel_path) %>
@@ -33,9 +34,8 @@
 	<% end -%>
       </li>
       <% end -%>
-      <% end -%>
     </ul>
-    <% end -%>
   </li>
-</ul>  
+</ul>
+<% end -%>
 </div>

@@ -13,7 +13,8 @@
   </li>
   <li class="action">
     <%= link_to_remote("branches",
-                       :url => '',
+                       :update => 'git-body',
+                       :url => af_path(:branches, repo),
                        :html => {:class => 'branches', :title => 'view the branches of this repo'}) %>
   </li>
   <% if logged_in? -%>

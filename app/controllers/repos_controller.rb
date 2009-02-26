@@ -66,6 +66,11 @@ class ReposController < ApplicationController
 
   def branches
     @repo = Repo.find(af_id)
+    if request.xhr?
+      render(:partial => 'git_branches', :locals => {:repo => @repo})
+    else
+      render(:action => :git)
+    end
   end
 
   def grep
