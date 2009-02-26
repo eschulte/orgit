@@ -378,6 +378,10 @@ background-color: #a0a0a0;
 color: white;
 }
 
+#repo-commit #commit-info pre {
+padding: 0.5em;
+}
+
 /**********************************************************************************/
 /*                                   repo grep                                    */
 
