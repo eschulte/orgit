@@ -1,0 +1,36 @@
+<ul class="actions">
+  <% if page.last_commit -%>
+  <li class="action">
+    <%= link_to_remote("history",
+                       :url => af_path(:history, page),
+                       :html => {:class => 'history', :title => 'view this pages commit history'}) %>
+  </li>
+  <% end -%>
+  <% if logged_in? -%>
+  <li class="action">
+    <%= link_to_remote("edit",
+                       :url => af_path(:edit, page),
+                       :html => {:class => 'edit', :title => 'edit the content of this page'}) %>
+  </li>
+  <li class="action">
+    <%= link_to("delete",
+                af_path(:delete, page),
+                :method => :delete,
+                :class => 'delete',
+                :confirm => 'Are you sure you want to irrevocably delete this page?',
+                :title => 'delete this page') %>
+  </li>
+  <% end -%>
+  <li class="action">
+    <%= link_to(".org",
+                af_path(:view, page, :format => :org),
+                :class => 'org',
+                :title => 'download this page in org-mode') %>
+  </li>
+  <li class="action">
+    <%= link_to(".tex",
+                af_path(:view, page, :format => :tex),
+                :class => 'latex',
+                :title => 'download this page LaTeX') %>
+  </li>
+</ul>

@@ -1,0 +1,20 @@
+<ul class="actions">
+  <li class="action">
+    <%= link_to_remote("log",
+                       :url => '',
+                       :html => {:class => 'log', :title => 'view the log for this repo'}) %>
+  </li>
+  <li class="action">
+    <%= link_to_remote("status",
+                       :url => '',
+                       :html => {:class => 'status', :title => 'view the status of this repo'}) %>
+  </li>
+  <li class="action">
+    <%= link_to_remote("branches",
+                       :url => '',
+                       :html => {:class => 'branches', :title => 'view the branches of this repo'}) %>
+  </li>
+  <% if logged_in? -%>
+  
+  <% end -%>
+</ul>

@@ -151,7 +151,7 @@ height: 100%;
 
 /**********************************************************************************/
 /*                                    Buttons                                     */
-.org, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .clear, .previous, .next, .up, .html, .latex, .new {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
+.org, .save, .edit, .delete, .cancel, .history, .inspect, .diff, .revert, #user-bar-in, #user-bar-out, .clear, .previous, .next, .up, .html, .latex, .new, .log, .status, .branches {background:url(../icons/arrow_in.png) no-repeat;padding:.083em 0 .083em 1.75em;}
 .save {background-image:url(../icons/tick_circle.png)}
 .new {background-image:url(../icons/plus_circle.png)}
 .edit {background-image:url(../icons/pencil.png)}
@@ -169,6 +169,9 @@ height: 100%;
 .up {background-image:url(../icons/up.png)}
 .org {background-image:url(../icons/text_list_numbers.png)}
 .latex {background-image:url(../icons/sum.png)}
+.log {background-image:url(../icons/clipboard.png)}
+.status {background-image:url(../icons/magnifier_left.png)}
+.branches {background-image:url(../icons/chart_line.png)}
 
 
 /**********************************************************************************/
