@@ -69,3 +69,4 @@ end
 # Mime Types
 Mime::Type.register('text/plain', :org)
 Mime::Type.register('text/plain', :tex)
+Mime::Type.register('application/pdf', :pdf)

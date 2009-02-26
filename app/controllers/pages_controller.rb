@@ -31,6 +31,11 @@ class PagesController < ApplicationController
                   :type => 'text/plain',
                   :disposition => 'attachment')
       end
+      format.pdf do
+        send_data(File.read("#{File.join(Page.base_directory, path)}.#{params[:format]}"),
+                  :type => 'application/pdf',
+                  :disposition => 'attachment')
+      end
       format.any { send_data(File.read("#{File.join(Page.base_directory, path)}.#{params[:format]}")) }
     end
   end
