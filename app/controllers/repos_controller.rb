@@ -34,6 +34,17 @@ class ReposController < ApplicationController
     end
   end
 
+  def log
+    @repo = Repo.find(af_id)
+    @graph = @repo.git.lib.graph(:pretty => 'oneline').
+      map{ |line| [$1, $2, $3] if line =~ /^([*| \\ \/]+)(\S+)(.+)$/ }
+    if request.xhr?
+      render(:partial => 'git_log', :locals => {:graph => @graph, :repo => @repo})
+    else
+      render(:action => :git)
+    end
+  end
+
   def commit
     @repo = Repo.find(af_id)
     @sha = params[:sha]
@@ -42,7 +53,21 @@ class ReposController < ApplicationController
       render(:action => 'commit.rjs')
     end
   end
-  
+
+  def status
+    @repo = Repo.find(af_id)
+    @status = @repo.status
+    if request.xhr?
+      render(:partial => 'git_status', :locals => {:repo => @repo, :status => @status})
+    else
+      render(:action => :git)
+    end
+  end
+
+  def branches
+    @repo = Repo.find(af_id)
+  end
+
   def grep
     @repo = Repo.find(af_id)
     @query = params[:query]

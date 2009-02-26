@@ -1,3 +1,9 @@
-<%= render(:partial => 'shared/header', :locals => { :repo => @repo, :git => @repo.git }) %>
+<%= render(:partial => 'shared/header', :locals => { :repo => @repo, :git => true }) %>
 
-<div id="git-body"><%= render :partial => 'git_log_view' %></div>
+<div id="git-body">
+  <% if controller.action_name == "log" -%>
+    <%= render(:partial => 'git_log', :locals => {:graph => @graph, :repo => @repo}) %>
+  <% else -%>
+    <%= render(:partial => 'git_status', :locals => {:repo => @repo, :status => @repo.status}) %>
+  <% end -%>
+</div>

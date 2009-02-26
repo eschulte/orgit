@@ -33,7 +33,7 @@
   <% if page -%>
     <%= render(:partial => 'shared/header_page_actions', :locals => {:page => page}) %>
   <% elsif git -%>
-    <%= render(:partial => 'shared/header_git_actions', :labels => {:git => git}) %>
+    <%= render(:partial => 'shared/header_git_actions', :locals => {:repo => repo}) %>
   <% end -%>
     <div class="clear-both"></div>
 </div>

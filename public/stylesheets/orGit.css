@@ -519,17 +519,15 @@ text-decoration: underline;
 }
 
 #repo-log-graph {
-float:left;
 }
 
 #repo-log-graph pre {
 background-color: #f1f1f3;
 overflow: auto;
-height: 36em;
+height:20em;
 }
 
 #repo-commit {
-float: right;
 }
 
 #repo-commit label {
@@ -539,4 +537,24 @@ display: block;
 
 #repo-commit pre {
 overflow: auto;
+}
+
+#git-body .welcome-block {
+width: 98%;
+}
+
+#git-body .welcome-block h2{
+margin-top: 0em;
+}
+
+#repo-status ul{
+padding: .5em;
+margin: .5em;
+background-color: #f1f1f3;
+border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;
+list-style: none;
+}
+
+#repo-status ul label{
+font-weight: bold;
 }

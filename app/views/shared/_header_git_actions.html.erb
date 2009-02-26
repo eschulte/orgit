@@ -1,13 +1,15 @@
 <ul class="actions">
   <li class="action">
-    <%= link_to_remote("log",
-                       :url => '',
-                       :html => {:class => 'log', :title => 'view the log for this repo'}) %>
+    <%= link_to_remote("status",
+                       :update => 'git-body',
+                       :url => af_path(:status, repo),
+                       :html => {:class => 'status', :title => 'view the status of this repo'}) %>
   </li>
   <li class="action">
-    <%= link_to_remote("status",
-                       :url => '',
-                       :html => {:class => 'status', :title => 'view the status of this repo'}) %>
+    <%= link_to_remote("log",
+                       :update => 'git-body',
+                       :url => af_path(:log, repo),
+                       :html => {:class => 'log', :title => 'view the log for this repo'}) %>
   </li>
   <li class="action">
     <%= link_to_remote("branches",
