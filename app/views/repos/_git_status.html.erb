@@ -5,39 +5,29 @@
   <% head = repo.commit_history.first -%>
   <li><label>Head</label>: <%= truncate(head.sha, 10) %> <%= truncate(head.message.gsub("\n",""), 80) %></li>
 </ul>
-<% pages = status.untracked -%>
-<% if pages.size > 0 -%>
+<% if untracked.size > 0 -%>
 <ul>
   <li>
-    <label>Untracked files:</label> (<%= pages.size %>)
+    <label>Untracked files:</label> (<%= untracked.size %>)
     <ul>
-      <% pages.each do |page| -%>
+      <% untracked.each do |page| -%>
       <li>
-	<% if page.class == Page -%>
-	  <%= link_to(page.name, af_path(:view, page), :title => page.rel_path) %>
-        <% elsif page.respond_to?(:path) -%>
-	  <%= link_to(page.path, af_path(:view, File.join(repo.path, page.path))) %>
-	<% end -%>
+        <%= page %>
       </li>
       <% end -%>
     </ul>
   </li>
 </ul>
 <% end -%>
-<% pages = (status.added + status.changed + status.deleted) -%>
-<% if pages.size > 0 -%>
+<% if changed.size > 0 -%>
 <ul>
   <li>
-    <label>Changes:</label> (<%= pages.size %>)
+    <label>Changes:</label> (<%= changed.size %>)
     <ul>
-      <% pages.each do |page| -%>
+      <% changed.each do |page| -%>
         <li>
-  	<% if page.class == Page -%>
-	  <%= link_to(page.name, af_path(:view, page), :title => page.rel_path) %>
-        <% elsif page.respond_to?(:path) -%>
-	  <%= link_to(page.path, af_path(:view, File.join(repo.path, page.path))) %>
-	<% end -%>
-      </li>
+          <%= page[0] %>
+        </li>
       <% end -%>
     </ul>
   </li>

@@ -27,8 +27,9 @@ class ReposController < ApplicationController
 
   def git
     @repo = Repo.find(af_id)
-    @graph = @repo.git.lib.graph(:pretty => 'oneline').
-      map{ |line| [$1, $2, $3] if line =~ /^([*| \\ \/]+)(\S+)(.+)$/ }
+    status = @repo.status
+    @changed = (status.added + status.changed + status.deleted)
+    @untracked = @repo.untracked
     respond_to do |format|
       format.html{ render(:view => :git) }
     end
@@ -56,9 +57,12 @@ class ReposController < ApplicationController
 
   def status
     @repo = Repo.find(af_id)
-    @status = @repo.status
+    status = @repo.status
+    @changed = (status.added + status.changed + status.deleted)
+    @untracked = @repo.untracked
     if request.xhr?
-      render(:partial => 'git_status', :locals => {:repo => @repo, :status => @status})
+      render(:partial => 'git_status',
+             :locals => {:repo => @repo, :changed => @changed, :untracked => @untracked})
     else
       render(:action => :git)
     end
