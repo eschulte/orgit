@@ -1,8 +1,4 @@
-orGit --- a wiki powered by git and Emacs Org-Mode
-==================================================
+No Longer under active development.
 
-* [git](http://git-scm.com/) provides version control, edit history,
-  diffs and reversion
-
-* [Org-Mode](http://orgmode.org) provides powerful markup, embedded
-  source-code, tables, spreadsheets, data visualization and analysis
+For a related project which is being actively developed and maintained
+see blorgit http://github.com/eschulte/blorgit/tree/master
